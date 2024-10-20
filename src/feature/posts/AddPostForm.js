@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { postsAdded } from "./postSlice"
+import { addPosts} from "./postSlice"
 import { selectAllUsers } from "../users/userSlice"
 
 function AddPostForm (){
@@ -9,6 +9,7 @@ function AddPostForm (){
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [userId, setUserId] = useState('')
+    const [addStatusIdles, setAddStatusIdles] = useState('idle')
 
     const dispatch = useDispatch()
 
@@ -16,23 +17,30 @@ function AddPostForm (){
     const onContent = (e) => setContent(e.target.value)
     const onUserId = (e) => setUserId(e.target.value)
 
+
+    const cansave = [title, content, userId].every(Boolean) && addStatusIdles === "idle"
+
     const handleSubmit = () =>{
 
-        if (title && content ){
+        if(cansave){
+            try {
+        setAddStatusIdles('pending')
+       
             dispatch(
-                postsAdded(
-                    title,
-                    content,
-                    userId,
-                    
-                )
-            )
+                addPosts({title,
+                    body: content,
+                    userId})
+            ).unwrap()
             setTitle('')
             setContent('')
-        }
+            setUserId('')
+    }
+    catch(err){
+
+    }
+}
     }
 
-    const cansave = Boolean(title) && Boolean(content) && (userId)
     const options = (
         <>
             {

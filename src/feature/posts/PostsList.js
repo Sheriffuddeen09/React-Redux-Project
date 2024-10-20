@@ -1,38 +1,46 @@
-import { useSelector } from "react-redux"
-import { selectAllPosts } from "./postSlice"
-import UserList from "../users/UserLists"
-import TimeAgo from "./TimeAgo"
-import ReactionButton from "./ReactionButton"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchPosts, getPostsError, getPostsStatus, selectAllPosts } from "./postSlice"
+import { useEffect } from "react"
+import PostsExcept from "./PostsExcept"
+
 
 
 function PostsList (){
-const posts = useSelector(selectAllPosts)
-const sortedPost = posts.slice().sort((a,b) => b.date.localeCompare(a.date))
-const content = (
-    <div>
-        {
-            sortedPost.map((post) =>(
-                <div className="w-80 border border-white rounded-xl p-4 mx-auto my-10">
-                    <h1 className="text-white text-xl font-bold captalize">
-                        {post.title}
-                    </h1>
-                    <p className="text-white text-sm">
-                        {post.content}
-                    </p>
-                    <p className="text-white text-sm my-2 font-bold">
-                        <UserList userId={post.userId} />
-                    </p>
-                    <p className="text-white text-sm  italic">
-                        <TimeAgo timestamp={post.date} />
-                    </p>
-                    <div> <ReactionButton post={post}/> </div>
 
-                </div>
+    const dispatch = useDispatch()
+    const posts = useSelector(selectAllPosts)
+    const postsStatus = useSelector(getPostsStatus)
+    const error = useSelector(getPostsError)
 
-            ))
+    useEffect(() =>{
+        if(postsStatus === 'idle'){
+        dispatch(fetchPosts())
+    }
+    }, [postsStatus, dispatch])
+
+    let content
+
+    if(postsStatus === 'isLoading'){
+        content = <p>isLoading</p>
+    }
+    
+    else if (postsStatus === 'succeeded'){
+        const sortedPost = posts.slice().sort((a,b) => b.date.localeCompare(a.date))
+        content = (
+            <div>
+                {
+                    sortedPost.map((post) =>(
+                    <PostsExcept post={post} />
+                    ))
+                }
+            </div>
+        )
         }
-    </div>
-)
+
+    else if (postsStatus === 'failed'){
+        content = <p>{error}</p>
+    }
+
     return (
 
         <section>
