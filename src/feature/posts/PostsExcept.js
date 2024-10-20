@@ -6,6 +6,7 @@ function PostsExcept ({post}){
 
     return (
         <div className="w-80 border border-white rounded-xl p-4 mx-auto my-10">
+        <img src={post.image} alt="imagepicture" width={300}/>
         <h1 className="text-white text-xl font-bold captalize">
             {post.title}
         </h1>

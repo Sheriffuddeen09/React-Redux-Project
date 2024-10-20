@@ -8,6 +8,7 @@ function AddPostForm (){
     const users = useSelector(selectAllUsers)
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+    const [picture, setPicture] = useState('')
     const [userId, setUserId] = useState('')
     const [addStatusIdles, setAddStatusIdles] = useState('idle')
 
@@ -16,9 +17,10 @@ function AddPostForm (){
     const onTitle = (e) => setTitle(e.target.value)
     const onContent = (e) => setContent(e.target.value)
     const onUserId = (e) => setUserId(e.target.value)
+    const onImage = (e) => setPicture(e.target.value)
 
 
-    const cansave = [title, content, userId].every(Boolean) && addStatusIdles === "idle"
+    const cansave = [title, content, userId, picture].every(Boolean) && addStatusIdles === "idle"
 
     const handleSubmit = () =>{
 
@@ -28,12 +30,14 @@ function AddPostForm (){
        
             dispatch(
                 addPosts({title,
+                    picture,
                     body: content,
                     userId})
             ).unwrap()
             setTitle('')
             setContent('')
             setUserId('')
+            setPicture('')
     }
     catch(err){
 
@@ -53,6 +57,7 @@ function AddPostForm (){
 
     return (
         <form className="flex flex-col gap-2 items-center mt-10 text-black">
+            <input type="file" name="image" className="rounded-xl w-80 text-white border border-2 border-blue-300 p-2" value={picture} onChange={onImage} />
             <input type="text" className="rounded-xl w-80 border border-2 border-blue-300 p-2" value={title} onChange={onTitle} />
             <input type="text" className="rounded-xl w-80 border border-2 border-blue-300 p-2" value={content} onChange={onContent} />
             <select className="rounded-xl w-80 border border-2 border-blue-300 p-2" value={userId} onChange={onUserId}>{options}</select>

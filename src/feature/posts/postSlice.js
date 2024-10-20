@@ -2,7 +2,7 @@ import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { sub } from "date-fns";
 
-const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
+const POSTS_URL = 'http://localhost:3500/posts';
 
 const initialState = {
     posts:[],
@@ -33,11 +33,12 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async ()  => {
             reducer(state, action){
             state.posts.push(action.payload)
         },
-        prepare(title, content, userId){
+        prepare(title, content, userId, picture){
             return{
                 payload:{
                     title,
                     content,
+                    picture,
                     id: nanoid(),
                     userId,
                     date: new Date().toISOString(),

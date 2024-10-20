@@ -5,6 +5,10 @@ import App from './App';
 //import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
+
+import { fetchUsers } from './feature/users/userSlice';
+store.dispatch(fetchUsers())
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
