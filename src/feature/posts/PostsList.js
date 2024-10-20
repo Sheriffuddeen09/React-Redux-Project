@@ -7,11 +7,11 @@ import ReactionButton from "./ReactionButton"
 
 function PostsList (){
 const posts = useSelector(selectAllPosts)
-//const sortedPost = posts.slice().sort((a,b) => b.post.localCompare(a.post))
+const sortedPost = posts.slice().sort((a,b) => b.date.localeCompare(a.date))
 const content = (
     <div>
         {
-            posts.map((post) =>(
+            sortedPost.map((post) =>(
                 <div className="w-80 border border-white rounded-xl p-4 mx-auto my-10">
                     <h1 className="text-white text-xl font-bold captalize">
                         {post.title}

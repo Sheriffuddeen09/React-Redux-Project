@@ -32,6 +32,7 @@ function AddPostForm (){
         }
     }
 
+    const cansave = Boolean(title) && Boolean(content) && (userId)
     const options = (
         <>
             {
@@ -47,7 +48,7 @@ function AddPostForm (){
             <input type="text" className="rounded-xl w-80 border border-2 border-blue-300 p-2" value={title} onChange={onTitle} />
             <input type="text" className="rounded-xl w-80 border border-2 border-blue-300 p-2" value={content} onChange={onContent} />
             <select className="rounded-xl w-80 border border-2 border-blue-300 p-2" value={userId} onChange={onUserId}>{options}</select>
-            <button onClick={handleSubmit} type="button" className="rounded-xl w-80 border border-2 border-blue-300 p-2 bg-blue-300 text-white">Send</button>
+            <button disabled={!cansave} onClick={handleSubmit} type="button" className="rounded-xl w-80 border border-2 border-blue-600 p-2 bg-blue-600 text-white">Send</button>
         </form>
     )
 }
