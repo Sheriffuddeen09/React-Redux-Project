@@ -12,17 +12,17 @@ const content = (
     <div>
         {
             posts.map((post) =>(
-                <div className="w-80 border border-black rounded-xl p-4 mx-auto my-10">
-                    <h1 className="text-black text-xl font-bold captalize">
+                <div className="w-80 border border-white rounded-xl p-4 mx-auto my-10">
+                    <h1 className="text-white text-xl font-bold captalize">
                         {post.title}
                     </h1>
-                    <p className="text-black text-sm">
+                    <p className="text-white text-sm">
                         {post.content}
                     </p>
-                    <p className="text-black text-sm my-2 font-bold">
+                    <p className="text-white text-sm my-2 font-bold">
                         <UserList userId={post.userId} />
                     </p>
-                    <p className="text-black text-sm  italic">
+                    <p className="text-white text-sm  italic">
                         <TimeAgo timestamp={post.date} />
                     </p>
                     <div> <ReactionButton post={post}/> </div>

@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 
-
-    .toggle-btn {
-        @apply [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div]:bg-transparent [&>div]:rotate-[720deg]
-    }
-
 :root{
     --body_background: blue;
     --body_backtoggle: white;
@@ -29,13 +24,11 @@
   
   
   }
-  /*body{
+  body{
+    color: white;
     background-color: #282c30;
   }
-  */
-  body{
-    background-color: white;
-  }
+  
   .bg-hover{
     background-color: rgb(0,0,0, .1);
   }
