@@ -34,3 +34,39 @@
   color: black;
   border: none;
  }
+ .home{
+  position: relative;
+}
+  .home::after{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    width: 100%;
+    left: 0px;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+    transform: scaleX(0);
+  }
+  .home:hover::after{
+    transform: scaleX(1);
+    
+  }
+  .post{
+    position: relative;
+  }
+  .post::after{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    width: 100%;
+    left: 0px;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+    transform: scaleX(0);
+  }
+  .post:hover::after{
+    transform: scaleX(1);
+    
+  }

@@ -1,15 +1,19 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { addPosts} from "./postSlice"
+import { selectPostById} from "./postSlice"
 import { selectAllUsers } from "../users/userSlice"
+import { useParams } from "react-router-dom"
 
-function AddPostForm (){
+function AddPostEdit (){
+
+    const {id} = useParams()
+    const post = useSelector(selectPostById, Number(id))
 
     const users = useSelector(selectAllUsers)
-    const [title, setTitle] = useState('')
-    const [content, setContent] = useState('')
-    const [image, setImage] = useState('')
-    const [userId, setUserId] = useState('')
+    const [title, setTitle] = useState(post?.title)
+    const [content, setContent] = useState(post?.content)
+    const [picture, setPicture] = useState(post?.picture)
+    const [userId, setUserId] = useState(post?.userId)
     const [addStatusIdles, setAddStatusIdles] = useState('idle')
 
     const dispatch = useDispatch()
@@ -17,10 +21,10 @@ function AddPostForm (){
     const onTitle = (e) => setTitle(e.target.value)
     const onContent = (e) => setContent(e.target.value)
     const onUserId = (e) => setUserId(e.target.value)
-    const onImage = (e) => setImage(e.target.value)
+    const onImage = (e) => setPicture(e.target.value)
 
 
-    const cansave = [title, content, userId, image].every(Boolean) && addStatusIdles === "idle"
+    const cansave = [title, content, userId, picture].every(Boolean) && addStatusIdles === "idle"
 
     const handleSubmit = () =>{
 
@@ -29,15 +33,12 @@ function AddPostForm (){
         setAddStatusIdles('pending')
        
             dispatch(
-                addPosts({title,
-                    image,
-                    body: content,
-                    userId})
+        ({id, title, picture, body: content, userId, reaction: post.reactions})
             ).unwrap()
             setTitle('')
             setContent('')
             setUserId('')
-            setImage('')
+            setPicture('')
     }
     catch(err){
 
@@ -59,7 +60,7 @@ function AddPostForm (){
         <form className="flex flex-col gap-2 items-center  mt-5 text-black">
             <div className="flex flex-col gap-2">
             <label className="text-start text-white text-xl">Select Image</label>
-            <input type="file" name="image" placeholder="choose image" className="rounded-xl w-80 bg-gray-300 text-white border border-2 border-blue-300 p-2" value={image} onChange={onImage} />
+            <input type="file" name="image" placeholder="choose image" className="rounded-xl w-80 bg-gray-300 text-white border border-2 border-blue-300 p-2" value={picture} onChange={onImage} />
             </div>
             <div className="flex flex-col gap-2">
             <label className="text-start text-white text-xl">Post Title</label>
@@ -67,7 +68,7 @@ function AddPostForm (){
             </div>
             <div className="flex flex-col gap-2">
             <label className="text-start text-white text-xl">User-Name</label>
-            <select className="rounded-xl w-80 border border-2 border-blue-300 bg-gray-300 p-2" value={userId} onChange={onUserId}>{options}</select>
+            <select className="rounded-xl w-80 border border-2 border-blue-300 bg-gray-300 p-2" defaultValue={userId} onChange={onUserId}>{options}</select>
             </div>
             <div className="flex flex-col gap-2">
             <label className="text-start text-white text-xl">Post Content</label>
@@ -78,4 +79,4 @@ function AddPostForm (){
     )
 }
 
-export default AddPostForm
+export default AddPostEdit
