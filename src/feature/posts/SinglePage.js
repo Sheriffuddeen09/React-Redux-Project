@@ -1,18 +1,38 @@
 import UserList from "../users/UserLists"
 import TimeAgo from "./TimeAgo"
 import ReactionButton from "./ReactionButton"
-import { Link, useParams } from "react-router-dom"
-import { useSelector } from "react-redux"
-import { selectPostById } from "./postSlice"
+import { Link, useNavigate, useParams } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { deletePost, selectPostById } from "./postSlice"
 
 function SinglePage (){
 
     const { postId } = useParams()
     const post = useSelector((state) => selectPostById(state, Number(postId)))
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
 
     if(!post){
         return <p className="text-4xl font-bold text-center mt-60">post is not Found Go to <Link to={'/'} className="text-blue-400 underline">Homepage</Link></p>
     }
+
+
+    const handleDelete = () =>{
+
+            try {
+            dispatch(
+                deletePost({ id: post.id })
+            ).unwrap()
+
+            navigate('/')
+    }
+    catch(err){
+        
+    }
+    
+    }
+
 
     return (
         <div className="w-80 border border-white rounded-xl p-4 mx-auto my-10">
@@ -22,9 +42,10 @@ function SinglePage (){
         <p className="text-white text-sm">
             {post.body}
         </p>
-        <Link to={`/edit/${post.id}`} className="text-white text-sm">
+        <Link to={`/post/edit/${post.id}`} className="text-blue-500 bg-white py-1 px-3 w-28 my-2 rounded-xl">
             Edit Post
         </Link>
+        <button type="button" onClick={handleDelete} className="text-white bg-red-600 p-1 w-28 my-2 translate-x-5 rounded-xl">Delete</button>
         <p className="text-white text-sm my-2 font-bold">
             <UserList userId={post.userId} />
         </p>

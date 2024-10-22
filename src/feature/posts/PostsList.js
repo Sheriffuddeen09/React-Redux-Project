@@ -24,7 +24,7 @@ function PostsList (){
             <div>
                 {
                     sortedPost.map((post) =>(
-                    <PostsExcept post={post} />
+                    <PostsExcept post={post} key={post.id}/>
                     ))
                 }
             </div>

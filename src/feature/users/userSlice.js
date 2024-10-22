@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const POSTS_URL = 'http://localhost:3500/users';
+const POSTS_URL = 'https://redux-json.onrender.com/users';
 
 const initialState = []
 

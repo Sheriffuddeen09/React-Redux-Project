@@ -10,9 +10,9 @@ function PostsExcept ({post}){
         <h1 className="text-white text-xl font-bold captalize">
             {post.title}
         </h1>
-        <Link to={`post/${post.id}`}>
+        <Link to={`/post/${post.id}`}>
         <p className="text-white text-sm">
-            {post.body}
+            {post.body.substring(0, 85)}...see more
         </p>
         </Link>
         <p className="text-white text-sm my-2 font-bold">
