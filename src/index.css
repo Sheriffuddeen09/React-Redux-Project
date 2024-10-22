@@ -12,6 +12,7 @@
     --icon:black;
     --iconb:white;
   }
+  
  
   [dark-theme="dark"]{
     --body_backtoggle: #626267;
@@ -67,6 +68,24 @@
     transform: scaleX(0);
   }
   .post:hover::after{
+    transform: scaleX(1);
+    
+  }
+  .user{
+    position: relative;
+  }
+  .user::after{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    width: 100%;
+    left: 0px;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+    transform: scaleX(0);
+  }
+  .user:hover::after{
     transform: scaleX(1);
     
   }

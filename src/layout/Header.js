@@ -9,6 +9,7 @@ function Header(){
                 <span className="inline-flex gap-8">
                     <Link to={'/'}><p className="post">Home</p></Link>
                     <Link to={'/post'}><p className="home">Post</p></Link>
+                    <Link to={'/user'}><p className="user">Users</p></Link>
                 </span>
             </nav>
         </header>

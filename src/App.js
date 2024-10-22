@@ -4,6 +4,7 @@ import SinglePage from "./feature/posts/SinglePage";
 import Layout from "./layout/Layout";
 import EditPostForm from "./feature/posts/EditPostForm";
 import AddPostForm from './feature/posts/AddPostForm'
+import Users from "./feature/users/Users";
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
     <Routes>
         <Route path="/" element={<Layout />} >
         <Route index element={<PostsList />} />
-
+        <Route path="user">
+          <Route index element={<Users />} />
+        </Route>
 
         <Route path="post">
         <Route index element={<AddPostForm />} />
