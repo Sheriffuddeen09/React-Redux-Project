@@ -5,6 +5,7 @@ import Layout from "./layout/Layout";
 import EditPostForm from "./feature/posts/EditPostForm";
 import AddPostForm from './feature/posts/AddPostForm'
 import Users from "./feature/users/Users";
+import UsersListId from "./feature/users/UsersListId";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route index element={<PostsList />} />
         <Route path="user">
           <Route index element={<Users />} />
+          <Route path=":userId" element={<UsersListId />} />
         </Route>
 
         <Route path="post">

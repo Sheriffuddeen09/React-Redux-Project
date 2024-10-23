@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const POSTS_URL = 'https://redux-json.onrender.com/users';
+const POSTS_URL = 'http://localhost:3500/users';
 
 const initialState = []
 
@@ -32,4 +32,6 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () =>{
     })
 
     export const selectAllUsers = (state) => state.users
+    export const selectUsersById = (state, userId) => state.users.find(user => user.id === userId)
+    export const UserPostsById = (state, userId) => state.users.find(user => user.id === userId)
     export default usersSlice.reducer

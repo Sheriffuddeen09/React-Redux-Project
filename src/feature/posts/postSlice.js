@@ -1,8 +1,8 @@
-import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, nanoid, createAsyncThunk, createSelector } from "@reduxjs/toolkit";
 import axios from "axios";
 import { sub } from "date-fns";
 
-const POSTS_URL = 'https://redux-json.onrender.com/posts';
+const POSTS_URL = 'http://localhost:3500/posts';
 
 const initialState = {
     posts:[],
@@ -167,4 +167,9 @@ export const getPostsStatus = (state) => state.posts.status
 export const getPostsError = (state) => state.posts.error
 
 export const selectPostById = (state, postId) => state.posts.posts.find(post => post.id === postId)
+
+export const selectUserPost = createSelector(
+                [selectAllPosts, (state, userId) => userId], 
+                (posts, userId) => posts.filter(post => post.userId === userId)
+            )
 export default postsSlice.reducer
