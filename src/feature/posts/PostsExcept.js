@@ -2,8 +2,12 @@ import UserList from "../users/UserLists"
 import TimeAgo from "./TimeAgo"
 import ReactionButton from "./ReactionButton"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { selectPostById } from "./postSlice"
 
-function PostsExcept ({post}){
+function PostsExcept ({postId}){
+
+    const post = useSelector((state) => selectPostById(state, postId))
 
     return (
         <div className="w-80 border border-white rounded-xl p-4 mx-auto my-10">

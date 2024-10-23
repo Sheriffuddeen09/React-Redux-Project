@@ -26,7 +26,7 @@ function UsersListId (){
     return (
         <section className="p-4 flex flex-col justify-center items-center">
             <h1 className="text-3xl font-bold">
-            {user.name}
+            {user?.name}
             </h1>
             <p className="text-xl ">
                 {content}

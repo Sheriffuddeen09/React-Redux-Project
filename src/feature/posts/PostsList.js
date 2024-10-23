@@ -1,12 +1,11 @@
 import { useSelector } from "react-redux"
-import {  getPostsError, getPostsStatus, selectAllPosts } from "./postSlice"
+import {  getPostsError, getPostsStatus, selectPostsByIds} from "./postSlice"
 import PostsExcept from "./PostsExcept"
 
 
 
 function PostsList (){
-
-    const posts = useSelector(selectAllPosts)
+    const orderpostId = useSelector(selectPostsByIds)
     const postsStatus = useSelector(getPostsStatus)
     const error = useSelector(getPostsError)
 
@@ -19,18 +18,11 @@ function PostsList (){
     }
     
     else if (postsStatus === 'succeeded'){
-        const sortedPost = posts.slice().sort((a,b) => b.date.localeCompare(a.date))
-        content = (
-            <div>
-                {
-                    sortedPost.map((post) =>(
-                    <PostsExcept post={post} key={post.id}/>
+        content  =  orderpostId.map((postId) =>(
+                    <PostsExcept postId={postId} key={postId}/>
                     ))
+               
                 }
-            </div>
-        )
-        }
-
     else if (postsStatus === 'failed'){
         content = <p>{error}</p>
     }

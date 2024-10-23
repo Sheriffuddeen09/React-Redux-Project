@@ -1,14 +1,16 @@
-import { createSlice, nanoid, createAsyncThunk, createSelector } from "@reduxjs/toolkit";
+import { createSlice, nanoid, createAsyncThunk, createSelector, createEntityAdapter } from "@reduxjs/toolkit";
 import axios from "axios";
 import { sub } from "date-fns";
 
 const POSTS_URL = 'http://localhost:3500/posts';
 
-const initialState = {
-    posts:[],
+const postAdapter = createEntityAdapter({
+    sortComparer: (a, b) => b.date.localeCompare(a.date)
+})
+const initialState = postAdapter.getInitialState({
     status:'idle', //'idle' | 'loading' | 'succeeded' | 'failed'
     error: null
-}
+})
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async ()  => {
         
@@ -78,7 +80,7 @@ export const deletePost = createAsyncThunk('posts/deletePost', async (initialPos
     reactionAdded(state, action){
 
         const {postId, reaction} = action.payload
-        const icons = state.posts.find(post => post.id === postId)
+        const icons = postAdapter.entities[postId]
         if(icons){
             icons.reactions[reaction]++
         }
@@ -103,25 +105,13 @@ export const deletePost = createAsyncThunk('posts/deletePost', async (initialPos
                 }
                 return post;
             })
-            state.posts = state.posts.concat(loadposts)
+            postAdapter.upsertMany(state, loadposts)
         })
         .addCase(fetchPosts.rejected, (state, action) =>{
             state.error = 'failed'
             state.error = action.error.message
         })
         .addCase(addPosts.fulfilled, (state, action) => {
-            // Fix for API post IDs:
-            // Creating sortedPosts & assigning the id 
-            // would be not be needed if the fake API 
-            // returned accurate new post IDs
-            const sortedPosts = state.posts.sort((a, b) => {
-                if (a.id > b.id) return 1
-                if (a.id < b.id) return -1
-                return 0
-            })
-            action.payload.id = sortedPosts[sortedPosts.length - 1].id + 1;
-            // End fix for fake API post IDs 
-
             action.payload.userId = Number(action.payload.userId)
             action.payload.date = new Date().toISOString();
             action.payload.reactions = {
@@ -131,7 +121,7 @@ export const deletePost = createAsyncThunk('posts/deletePost', async (initialPos
                 rocket: 0,
                 eyes: 0
             }
-            state.posts.push(action.payload)
+            postAdapter.addOne(state, action.payload)
         })
         .addCase(updatePosts.fulfilled, (state, action) => {
             if(!action.payload?.id){
@@ -139,10 +129,8 @@ export const deletePost = createAsyncThunk('posts/deletePost', async (initialPos
                 console.log(action.payload)
                 return
             }
-                const {id} = action.payload
                 action.payload.date = new Date().toISOString()
-                const posts = state.posts.filter((post) => post.id !== id)
-                state.posts = [...posts, action.payload]
+                postAdapter.upsertOne(state, action.payload)
             
         })
         .addCase(deletePost.fulfilled, (state, action) => {
@@ -151,9 +139,8 @@ export const deletePost = createAsyncThunk('posts/deletePost', async (initialPos
                 console.log(action.payload)
                 return;
             }
-            const { id } = action.payload;
-            const posts = state.posts.filter(post => post.id !== id);
-            state.posts = posts;
+            const {id} = action.payload
+            postAdapter.removeOne(state, id)
         })
       
     }
@@ -162,11 +149,14 @@ export const deletePost = createAsyncThunk('posts/deletePost', async (initialPos
 
 export const { postAdded, reactionAdded } = postsSlice.actions
 
-export const selectAllPosts = (state) => state.posts.posts
+export const {
+    selectAll: selectAllPosts,
+    selectById: selectPostById,
+    selectIds: selectPostsByIds
+} = postAdapter.getSelectors((state) => state.posts)
 export const getPostsStatus = (state) => state.posts.status
 export const getPostsError = (state) => state.posts.error
 
-export const selectPostById = (state, postId) => state.posts.posts.find(post => post.id === postId)
 
 export const selectUserPost = createSelector(
                 [selectAllPosts, (state, userId) => userId], 
