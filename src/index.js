@@ -2,15 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { ApiProvider } from '@reduxjs/toolkit/query/react';
-import { apiSlice } from './api/apiSlice';
+import { store } from './store/store';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { extendedApiSlice } from './feature/posts/postsSlice';
+import { Provider } from 'react-redux';
+import { fetchUsers } from './feature/user/userSlice';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+store.dispatch(extendedApiSlice.endpoints.getPosts.initiate())
+
+store.dispatch(fetchUsers())
 root.render(
   <React.StrictMode>
-    <ApiProvider api={apiSlice}>
-    <App />
-    </ApiProvider>
+    <Provider store={store}>
+    <Router>
+      <Routes><Route
+      path='/*' element={<App />}
+    ></Route></Routes>
+    </Router>
+    </Provider>
   </React.StrictMode>
 );
 
