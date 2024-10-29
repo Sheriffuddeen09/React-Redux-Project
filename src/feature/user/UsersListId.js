@@ -1,12 +1,25 @@
-import { useSelector } from "react-redux"
-import { selectUsersById } from "./userSlice"
+import { useGetUsersQuery } from "./userSlice"
 import { Link, useParams } from "react-router-dom"
 import { useGetPostsByUserIdQuery } from "../posts/postsSlice"
 
 function UsersListId (){
 
     const {userId} = useParams()
-    const user= useSelector((state) => selectUsersById(state, Number(userId)))
+    
+    const { user,
+        isLoading: isLoadingUser,
+        isSuccess: isSuccessUser,
+        isError: isErrorUser,
+        error: errorUser
+    } = useGetUsersQuery('getUsers', {
+        selectFromResult: ({ data, isLoading, isSuccess, isError, error }) => ({
+            user: data?.entities[userId],
+            isLoading,
+            isSuccess,
+            isError,
+            error
+        }),
+    })
     
     const {
         data: postForUser,
@@ -18,11 +31,11 @@ function UsersListId (){
 
     let content
 
-    if(isloading){
+    if(isloading || isLoadingUser){
         content = <p>Loading.....</p>
     }
     
-    else if (isSuccess){
+    else if (isSuccess && isSuccessUser){
         const {ids, entities} = postForUser
         content = ids.map(id => (
                         <div key={id}>
@@ -32,8 +45,8 @@ function UsersListId (){
                         </div>
                     ))
     }
-    else if (isError){
-        content = <p>{error}</p>
+    else if (isError || isErrorUser){
+        content = <p>{errorUser || error}</p>
     }
 
      

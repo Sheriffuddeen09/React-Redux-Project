@@ -9,7 +9,7 @@ import UsersListId from "./feature/user/UsersListId";
 
 function App() {
   return (
-    <div className="text-white">
+    <div className="text-white overflow-hidden">
 
     <Routes>
         <Route path="/" element={<Layout />} >

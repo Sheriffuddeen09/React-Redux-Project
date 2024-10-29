@@ -1,36 +1,26 @@
 
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createEntityAdapter} from "@reduxjs/toolkit";
+import { apiSlice } from "../../api/apiSlice";
 
-const POSTS_URL = 'http://localhost:3500/users';
+const usersAdapter = createEntityAdapter()
 
-const initialState = []
+const initialState = usersAdapter.getInitialState()
 
-export const fetchUsers = createAsyncThunk('users/fetchUsers', async () =>{
-        try{
-            const response = await axios.get(POSTS_URL)
-            return [...response.data]
-        }
-        catch(err){
-            return err.message
-        }
+export const usersApiSlice = apiSlice.injectEndpoints({
+    endpoints: builder => ({
+        getUsers: builder.query({
+            query: () => '/users',
+            transformResponse: responseData => {
+                return usersAdapter.setAll(initialState, responseData)
+            },
+            providesTags: (result, error, arg) => [
+                { type: 'User', id: "LIST" },
+                ...result.ids.map(id => ({ type: 'User', id }))
+            ]
+        })
+    })
 })
 
-    export const usersSlice = createSlice({
-        name:"users",
-        initialState,
-        reducers:{
-
-        },
-        extraReducers(builder){
-            builder
-            .addCase(fetchUsers.fulfilled, (state, action) => {
-                return action.payload
-    
-        })
-        }
-    })
-
-    export const selectAllUsers = (state) => state.users
-    export const selectUsersById = (state, userId) => state.users.find(user => user.id === userId)
-    export default usersSlice.reducer
+export const {
+    useGetUsersQuery
+} = usersApiSlice

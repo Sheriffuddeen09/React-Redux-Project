@@ -1,12 +1,13 @@
-import { useSelector } from "react-redux"
-import { selectAllUsers } from "./userSlice"
 import { Link } from "react-router-dom"
+import { useGetUsersQuery } from "./userSlice"
 
 function UserList ({userId}){
 
-    const users = useSelector(selectAllUsers)
-
-    const author = users.find(user => user.id === userId)
+    const {user: author}  = useGetUsersQuery('getUsers', {
+        selectFromResult: ({data, isLoading}) =>({
+            user: data?.entities[userId]
+        })
+    })
     return (
         <div>{author ? <Link to={`/user/${userId}`}>{author.name}</Link> : "Unknown Author"}</div>
     )

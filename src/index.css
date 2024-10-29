@@ -27,65 +27,110 @@
   }
   body{
     color: white;
-    background-color: #282c30;
+    background-color: white;
   }
-  
- :disabled{
-  background-color: rgb(73, 73, 73);
-  color: black;
-  border: none;
- }
- .home{
+  :disabled{
+    background-color: rgb(134, 133, 133);
+    color: white;
+    border: none;
+   }
+
+ .hover-menu{
+  left: 15px;
+  top: 63px;
+  position: absolute;
+  color: white;
+  background-color: rgb(79, 77, 77);
+  padding: 3px 20px;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  border-radius: 6px;
+  pointer-events: none;
+}
+.hover-menus{
+  right: -30px;
+  top: 63px;
+  position: absolute;
+  color: white;
+  background-color: rgb(79, 77, 77);
+  padding: 3px 20px;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  border-radius: 6px;
+  pointer-events: none;
+}
+.hover-menu:hover{
+  transition: all 1s ease;
+  opacity: 1;
+  top: 50%;
+  color: white;
+  background-color: rgb(79, 77, 77);
+}
+.icon-hover:hover .hover-menu{
+  transition: all 1s ease;
+  opacity: 1;
+  color: white;
+  background-color: rgb(79, 77, 77);
+}
+.icon-hover:hover .hover-menus{
+  transition: all 1s ease;
+  opacity: 1;
+  color: white;
+  background-color: rgb(79, 77, 77);
+}
+.icon-hover{
   position: relative;
 }
-  .home::after{
-    content: '';
-    position: absolute;
-    bottom: 0px;
-    height: 2px;
-    width: 100%;
-    left: 0px;
-    background-color: white;
-    transition: 0.3s ease-in-out;
-    transform: scaleX(0);
-  }
-  .home:hover::after{
-    transform: scaleX(1);
-    
-  }
-  .post{
-    position: relative;
-  }
-  .post::after{
-    content: '';
-    position: absolute;
-    bottom: 0px;
-    height: 2px;
-    width: 100%;
-    left: 0px;
-    background-color: white;
-    transition: 0.3s ease-in-out;
-    transform: scaleX(0);
-  }
-  .post:hover::after{
-    transform: scaleX(1);
-    
-  }
-  .user{
-    position: relative;
-  }
-  .user::after{
-    content: '';
-    position: absolute;
-    bottom: 0px;
-    height: 2px;
-    width: 100%;
-    left: 0px;
-    background-color: white;
-    transition: 0.3s ease-in-out;
-    transform: scaleX(0);
-  }
-  .user:hover::after{
-    transform: scaleX(1);
-    
-  }
+
+
+.bg-color{
+  background-color: rgb(0, 0 , 0, .7);
+}
+.home{
+  position: relative;
+}
+.home::after{
+  content: '';
+  position: absolute;
+  top: 3rem;
+  height: 3.5px;
+  width: 100%;
+  left: 0px;
+  background-color: blue;
+}
+.menus{
+  color: blue;
+  font-weight: bolder;
+}
+
+.homes{
+  color: blue;
+  font-weight: bolder;
+}
+.videos{
+  color: blue;
+  font-weight: bolder;
+}
+.markets{
+  color: blue;
+  font-weight: bolder;
+}
+.groups{
+  color: blue;
+  font-weight: bolder;
+}
+.friends{
+  color: blue;
+  font-weight: bolder;
+}
+
+.nones{
+  color: black;
+  background-color: transparent;
+}
+.scrollb{
+  scroll-snap-type: x mandatory;
+  overflow-y: scroll;
+}

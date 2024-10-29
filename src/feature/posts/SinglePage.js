@@ -2,15 +2,23 @@ import UserList from "../user/UserLists"
 import TimeAgo from "./TimeAgo"
 import ReactionButton from "./ReactionButton"
 import { Link, useNavigate, useParams } from "react-router-dom"
-import {  useSelector } from "react-redux"
-import { selectPostById, useDeletePostMutation } from "./postsSlice"
+import { useGetPostsQuery, useDeletePostMutation } from "./postsSlice"
 
 function SinglePage (){
 
     const { postId } = useParams()
-    const [deletePost] = useDeletePostMutation()
-    const post = useSelector((state) => selectPostById(state, Number(postId)))
     const navigate = useNavigate()
+
+    const [deletePost] = useDeletePostMutation()
+    
+    const {post, isLoading } = useGetPostsQuery('getPosts', {
+        selectFromResult: ({data, isLoading}) =>({
+            post:data?.entities[postId],
+            isLoading
+        })
+    })
+
+    if(isLoading) return <p>Loading....</p>
 
 
     if(!post){
@@ -34,21 +42,22 @@ function SinglePage (){
 
 
     return (
-        <div className="w-80 border border-white rounded-xl p-4 mx-auto my-10">
-        <h1 className="text-white text-xl font-bold captalize">
+        <div className="w-72 sm:w-80 border border-black rounded-xl p-4 mx-auto mt-28 mb-10">
+           <img src={post.image} alt="imagepicture" className="w-96 h-80"/>
+        <h1 className="text-black text-sm font-bold captalize">
+            {post.length}
+        </h1>
+        <h1 className="text-black text-sm font-bold captalize">
             {post.title}
         </h1>
-        <p className="text-white text-sm">
-            {post.body}
-        </p>
-        <Link to={`/post/edit/${post.id}`} className="text-blue-500 bg-white py-1 px-3 w-28 my-2 rounded-xl">
+        <Link to={`/post/edit/${post.id}`} className="text-blue-500 bg-black py-1 px-3 w-28 my-2 rounded-xl">
             Edit Post
         </Link>
-        <button type="button" onClick={handleDelete} className="text-white bg-red-600 p-1 w-28 my-2 translate-x-5 rounded-xl">Delete</button>
-        <p className="text-white text-sm my-2 font-bold">
+        <button type="button" onClick={handleDelete} className="text-black bg-red-600 p-1 w-28 my-2 translate-x-5 rounded-xl">Delete</button>
+        <p className="text-black text-sm my-2 font-bold">
             <UserList userId={post.userId} />
         </p>
-        <p className="text-white text-sm  italic">
+        <p className="text-black text-sm  italic">
             <TimeAgo timestamp={post.date} />
         </p>
         <div> <ReactionButton post={post}/> </div>

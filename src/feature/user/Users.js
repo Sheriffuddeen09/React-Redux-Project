@@ -1,24 +1,36 @@
-import { useSelector } from "react-redux"
-import { selectAllUsers } from "./userSlice"
+
 import { Link } from "react-router-dom"
+import { useGetUsersQuery } from "./userSlice"
 
 function Users (){
 
-    const users = useSelector(selectAllUsers)
+    const { 
+        data:users,
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    } = useGetUsersQuery('getUsers')
+    
 
-    const content = (
-        <div>
-            {
-                users.map(user =>(
-                    <div key={user.id} >
-                        <Link className="" to={`/user/${user.id}`}>
-                        <h1 className="text-blue-300 underline">{user.name}</h1>
+    let content
+    if(isLoading){
+        content = <p>Loading.....</p>
+    }
+    
+    else if (isSuccess){
+     content = users.ids.map(userId =>(
+                    <div key={userId} >
+                        <Link className="" to={`/user/${userId}`}>
+                        <h1 className="text-blue-300 underline">{users.entities[userId].name}</h1>
                         </Link>
                     </div>
                 ))
             }
-        </div>
-    )
+            else if (isError){
+                content = <p>{error}</p>
+            }
+
     return (
         <section className="p-4 flex flex-col justify-center items-center">
             {content}
