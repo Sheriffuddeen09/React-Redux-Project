@@ -134,3 +134,6 @@
   scroll-snap-type: x mandatory;
   overflow-y: scroll;
 }
+.bg-gray{
+  background-color: rgb(0, 0 , 0, .7);
+}

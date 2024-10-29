@@ -10,7 +10,7 @@ function PostsExcept ({postId}){
     const post = useSelector((state) => selectPostById(state, postId))
 
     return (
-        <div className="w-80 sm:w-96 border border-black rounded-xl p-4 translate-y-16 mx-auto my-10">
+        <div className="w-80 sm:w-96 border border-black rounded-xl p-4 translate-y-16 mx-auto my-14 sm:my-10">
             <img src={post.image} alt="imagepicture" className="w-96 h-80"/>
         <h1 className="text-black text-sm font-bold captalize">
             {post.length}

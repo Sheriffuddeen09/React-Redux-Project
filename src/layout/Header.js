@@ -3,6 +3,7 @@ import logo from '../image/image.jpg'
 import logoshe from '../image/logoshe.png'
 import islam from '../image/islam.jpg'
 import Ayat from '../image/dua.jpg'
+import switc from '../image/gg.jpg'
 import { useState } from "react";
 
 
@@ -10,14 +11,23 @@ function Header(){
 
     const [account, setAccount] = useState(false)
     const [accounts, setAccounts] = useState(false)
+    const [page, setPage] = useState(false)
+    const [switche, setSwitche] = useState(false)
     const homepage = useLocation().pathname
 
     const handleAccount = () =>{
         setAccount(!account)
     }
 
+    const handlePage = () =>{
+        setPage(!page)
+    }
+
     const handleAccounts = () =>{
         setAccounts(!accounts)
+    }
+    const handleSwitchs = () =>{
+        setSwitche(!switche)
     }
     
     return (
@@ -167,9 +177,9 @@ function Header(){
             </nav>
             <section style={{height:"530px",
                 
-            }} className={`bg-white text-black p-2 w-96 z-10 shadow-md fixed top-20 right-10 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${account ? "block" : "hidden"}`}>
+            }} className={`bg-white text-black p-2 w-96 z-10 shadow-md fixed top-20 right-3 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${account ? "block" : "hidden"}`}>
             <div className="bg-white text-black mb-3 p-2 h-72 z-10 shadow-md h-52 rounded-xl" style={{width:"350px"}}>
-                <div className="inline-flex items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+                <div className="inline-flex items-center my-2 hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
                     <p style={{fontSize:"15px"}}className="capitalize font-bold">Sheriffudden Olawale Love</p>
                 </div>
@@ -251,25 +261,36 @@ function Header(){
 
 
             <section className={`bg-gray-200 h-full text-black p-2 w-96 z-10 shadow-md fixed top-0 right-0 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${accounts ? "block" : "hidden"}`}>
-            <div className="bg-white text-black mb-3 p-2 h-72 z-10 shadow-md h-52 rounded-xl" style={{width:"350px"}}>
-                <div className="inline-flex items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+            <div>
+                <div className="flex mx-auto hover:bg-[#dedee0] bg-white mx-auto py-1 px-3 rounded-xl w-80 gap-6 items-center ">               
+                     <div className="inline-flex items-center hover:bg-[#dedee0] py-1 px-2 gap-2 w-full rounded-xl">
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
+                    <div>
                     <p style={{fontSize:"15px"}}className="capitalize font-bold">Sheriffudden Olawale Love</p>
+                    <p>View your profile</p>
+                    </div>
                 </div>
-                <hr className="my-2" />
-                <div className="inline-flex gap-4 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
-                    <img src={islam} width={40} height={40} alt="logo" className="border rounded-full" />
-                    <p style={{fontSize:"15px"}}className="hover:bg-[#dedee0] capitalize font-bold">Knowledge about islam</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 bg-[#dedee0] rounded-full" onClick={handlePage}>
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+
                 </div>
-                <div className="inline-flex gap-4 items-center mt-1 hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
-                    <img src={Ayat} width={40} height={40} alt="logo" className="border rounded-full" />
-                    <p style={{fontSize:"15px"}}className="hover:bg-[#dedee0] capitalize font-bold">Quran course</p>
+
+                <div className="flex mx-auto hover:bg-[#dedee0] bg-white my-3 mx-auto py-1 px-3 rounded-xl w-80 gap-6 items-center ">               
+                     <div className="inline-flex items-center hover:bg-[#dedee0] py-1 px-2 gap-2 w-full rounded-xl">
+                    <img src={switc} width={30} height={30} alt="logo" className="border rounded-full" />
+                    <p style={{fontSize:"15px"}}className="capitalize">Switch account</p>
                 </div>
-                <hr className="my-2" />
-                <Link to={'/users'}  className="flex hover:bg-[#dedee0] bg-gray-200 text-center mx-auto justify-center py-1 px-5 w-full rounded-xl  gap-3 bg items-center my"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-</svg>
- See all profiles</Link>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 bg-[#dedee0] rounded-full" onClick={handleSwitchs}>
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+
+                </div>
+                           
+                     <div className="flex hover:bg-[#dedee0] bg-white my-3 mx-auto py-1 px-3 rounded-xl w-80 items-center hover:bg-[#dedee0] py-2 px-2 gap-2 rounded-xl">
+                   ❤️
+                    <p style={{fontSize:"15px"}}className="capitalize">Invite friends</p>
+                </div>
             </div>
             <div className="flex-row justify-between flex items-center hover:bg-[#dedee0] py-2 px-5 w-full rounded-xl">
             <div className="inline-flex gap-3 items-center">
@@ -331,6 +352,77 @@ function Header(){
             <p className="px-5" style={{fontSize:"13px"}}>Privacy  · Terms  · Advertising  · Ad Choices  ·<br />  Cookies  ·   · Meta © 2024</p>
             
             </section>
+            <section onClick={handlePage} className={`bg-gray h-full text-black p-2 w-96 z-10 shadow-md fixed top-0 right-0 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${page ? "block" : "hidden"}`}>
+            <div className="bg-white text-black mb-3 p-2 h-96 z-10 shadow-md mx-auto translate-y-80 rounded-xl" style={{width:"350px"}}>
+                <h1 className="font-bold my-6 text-center mt-6">Your Pages and profiles</h1>
+                <hr className="mb-4"/>
+                <div className="flex-row flex items-center my-2 ">
+                <div className="inline-flex gap-2 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+                    <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
+                    <p style={{fontSize:"17px"}}className="capitalize font-bold">Sheriffale Love</p>
+                </div>
+                <input className="-translate-x-4 border rounded-full" type="checkbox" />
+                </div>
+                <div className="flex-row flex items-center my-2 ">
+                <div className="inline-flex gap-2 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+                    <img src={islam} width={40} height={40} alt="logo" className="border rounded-full" />
+                    <div>
+                    <p style={{fontSize:"17px"}}className="hover:bg-[#dedee0] capitalize">Knowledge about islam</p>
+                    <p className="inline-flex items-center gap-1"><div className="bg-blue-500 w-2 h-2 rounded-full"></div> 5 nofications</p>
+                    </div>
+                </div>
+                <input className="-translate-x-4 border rounded-full" type="checkbox" />
+                </div>
+                <div className="flex-row flex items-center my-2 ">
+                <div className="inline-flex gap-2 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+                    <img src={Ayat} width={40} height={40} alt="logo" className="border rounded-full" />
+                    <p style={{fontSize:"17px"}}className="hover:bg-[#dedee0] capitalize">Quran course</p>
+                </div>
+                <input className="-translate-x-4 border rounded-full" type="checkbox" />
+                </div>
+                <div className="inline-flex gap-2 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 bg-[#dedee0] p-1 rounded-full">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+
+                    <p style={{fontSize:"17px"}}className="hover:bg-[#dedee0] capitalize">create new profile</p>
+                </div>
+                </div>
+                </section>
+
+                <section onClick={handleSwitchs} className={`bg-gray h-full text-black p-2 w-96 z-10 shadow-md fixed top-0 right-0 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${switche ? "block" : "hidden"}`}>
+            <div className="bg-white text-black mb-3 p-2 h-96 z-10 shadow-md mx-auto translate-y-80 rounded-xl" style={{width:"350px"}}>
+                <h1 className="font-bold my-6 text-center mt-6">Switch Your Account</h1>
+                <hr className="mb-4"/>
+                <div className="flex-row flex items-center my-2 ">
+                <div className="inline-flex gap-2 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+                    <img src={islam} width={40} height={40} alt="logo" className="border rounded-full" />
+                    <div>
+                    <p style={{fontSize:"17px"}}className="hover:bg-[#dedee0] capitalize">Instagram Lite</p>
+                    <p className="inline-flex items-center gap-1">Explore things you love</p>
+                    </div>
+                </div>
+                <p className="bg-gray-200 font-bold rounded-lg py-1 px-4 text-black -translate-x-3"> Get </p>
+                </div>
+                <div className="flex-row flex items-center my-2 ">
+                <div className="inline-flex gap-2 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+                    <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
+                    <p style={{fontSize:"19px"}}className="capitalize">Sheriffudden Olawale Love</p>
+                </div>
+                <p className="-translate-x-3"> Logged_in </p>
+                </div>
+                <div className="flex-row flex items-center my-2 ">
+                <div className="inline-flex gap-2 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+                    <img src={islam} width={40} height={40} alt="logo" className="border rounded-full" />
+                    <div>
+                    <p style={{fontSize:"18px"}}className="hover:bg-[#dedee0] capitalize">Ibn Muhammad Islam Sunny</p>
+                    <p className="inline-flex items-center gap-1"><div className="bg-blue-500 w-2 h-2 rounded-full"></div> 5 nofications</p>
+                    </div>
+                </div>
+                <p className="bg-blue-200 font-bold rounded-lg py-1 px-3 text-blue-600 -translate-x-3"> Log_in </p>
+                </div>
+                </div>
+                </section>
         </header>
     )
 }
