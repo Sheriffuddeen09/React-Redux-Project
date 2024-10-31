@@ -1,4 +1,4 @@
-import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
+import { createEntityAdapter } from "@reduxjs/toolkit";
 
 import {sub} from 'date-fns'
 import { apiSlice } from "../../api/apiSlice";
@@ -18,7 +18,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                 let min = 1
                 const loadedPosts = responseData.map(post =>{
                     if (!post?.date) post.date = sub(new Date(), {minute: min++}).toISOString()
-                        if(!post?.reaction) post.reactions = {
+                        if(!post?.reactions) post.reactions = {
                             love: 0,
                             like: 0,
                             smile: 0,
@@ -99,16 +99,16 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
             method:'PATCH',
             body:{ reactions }
         }),
-        async onQueryStarted({postId, reactions}, {dispatch, queryfulfilled}){
+        async onQueryStarted({postId, reactions}, {dispatch, queryFulfilled}){
 
             const patchResult = dispatch(
-                extendedApiSlice.util.updateQueryData('getPosts', undefined, draft =>{
+                extendedApiSlice.util.updateQueryData('getPosts', 'getPosts', draft =>{
                     const post = draft.entities[postId]
                     if (post) post.reactions = reactions
                 })
             )
             try{
-                await queryfulfilled
+                await queryFulfilled
             }
             catch{
                 patchResult.undo()
@@ -127,14 +127,4 @@ export const{
     useAddReactionMutation
 } = extendedApiSlice
 
-export const selectPostsResult = extendedApiSlice.endpoints.getPosts.select()
-const selectPostsData = createSelector(
-    selectPostsResult,
-    postsResult => postsResult.data
-)
 
-export const {
-    selectAll: selectAllPosts,
-    selectById: selectPostById,
-    selectIds:selectPostIds
-} = postsAdapter.getSelectors(state => selectPostsData  (state) ?? initialState)

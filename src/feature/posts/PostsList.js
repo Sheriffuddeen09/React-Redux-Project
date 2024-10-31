@@ -1,5 +1,3 @@
-import { useSelector } from "react-redux"
-import { selectPostIds } from "./postsSlice"
 import PostsExcept from "./PostsExcept"
 import { useGetPostsQuery } from "./postsSlice"
 
@@ -8,14 +6,12 @@ import { useGetPostsQuery } from "./postsSlice"
 function PostsList (){
 
     const {
+        data:posts,
         isloading ,
         isSuccess,
         isError,
         error
-    } = useGetPostsQuery()
-
-    const orderpostId = useSelector(selectPostIds)
-
+    } = useGetPostsQuery('getPosts')
     
 
     let content
@@ -25,7 +21,7 @@ function PostsList (){
     }
     
     else if (isSuccess){
-        content  =  orderpostId.map((postId) =>(
+        content  =  posts.ids.map((postId) =>(
                     <PostsExcept postId={postId} key={postId}/>
                     ))
                

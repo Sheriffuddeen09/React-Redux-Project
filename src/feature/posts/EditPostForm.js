@@ -19,11 +19,11 @@ function EditPostForm (){
     })
 
 
-    const {data: users, isSuccessUser} = useGetUsersQuery('getUsers')
+    const {data: users, isSuccess:isSuccessUsers} = useGetUsersQuery('getUsers')
 
-    const [title, setTitle] = useState(post?.title)
-    const [content, setContent] = useState(post?.body)
-    const [userId, setUserId] = useState(post?.userId)
+    const [title, setTitle] = useState('')
+    const [content, setContent] = useState('')
+    const [userId, setUserId] = useState('')
 
     const navigate = useNavigate()
     const onTitle = (e) => setTitle(e.target.value)
@@ -55,7 +55,7 @@ function EditPostForm (){
 
         if(cansave){
             try {
-                  await updatePost({ id: post.id, title, body: content, userId, reactions: post.reactions}).unwrap()
+                  await updatePost({ id: post?.id, title, body: content, userId}).unwrap()
             setTitle('')
             setContent('')
             setUserId('')
@@ -81,14 +81,15 @@ function EditPostForm (){
     }
 
 
-    let options
-    if (isSuccessUser){
-     options = users.ids.map(id =>(
-        <div key={id} value={id}>
-            <h1 className="text-blue-300 underline">{users.entities[id].name}</h1>
-        </div>
-    ))
-            }
+    let usersOptions
+    if (isSuccessUsers) {
+        usersOptions = users.ids.map(id => (
+            <option
+                key={id}
+                value={id}
+            >{users.entities[id].name}</option>
+        ))
+    }
 
     return (
         <form className="flex flex-col gap-2 items-center  mt-20 text-black">
@@ -98,7 +99,7 @@ function EditPostForm (){
             </div>
             <div className="flex flex-col gap-2">
             <label className="text-start text-white text-xl">User-Name</label>
-            <select className="rounded-xl w-72 sm:w-80 border border-2 border-blue-300 bg-gray-300 p-2" defaultValue={userId} onChange={onUserId}>{options}</select>
+            <select className="rounded-xl w-72 sm:w-80 border border-2 border-blue-300 bg-gray-300 p-2" value={userId} onChange={onUserId}>{usersOptions}</select>
             </div>
             <div className="flex flex-col gap-2">
             <label className="text-start text-white text-xl">Post Content</label>

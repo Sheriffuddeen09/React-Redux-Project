@@ -137,3 +137,6 @@
 .bg-gray{
   background-color: rgb(0, 0 , 0, .7);
 }
+.rotate{
+  rotate: 180deg;
+}
