@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useParams } from 'react-router-dom';
 import MessageComment from './MessageComment';
 import EditMessage from "./EditMessage";
+import { RWebShare } from "react-web-share";
 const MessagePage = ({chatme,ChatSubmit, ChatDelete,chatTitle, setChatMessages, setChatTitle, chatMessages}) =>{
 
     const {id} = useParams()
@@ -18,6 +19,23 @@ const MessagePage = ({chatme,ChatSubmit, ChatDelete,chatTitle, setChatMessages, 
     const handleEdit = () =>{
         setEdit(!edit)
     }
+
+     
+  const content = (
+    <div>
+        <RWebShare
+            data={{
+                text: "Web Share - GfG",
+                url: "baseUrl: 'https://redux-json.onrender.com",
+                title: "GfG",
+            }}
+            onClick={() => console.log("shared successfully!")}
+        >
+            <p className="">share</p>
+
+        </RWebShare>
+    </div>
+  )
 
     return(
         <div className=' text-black bg-gray-900 w-full'>
@@ -58,7 +76,7 @@ const MessagePage = ({chatme,ChatSubmit, ChatDelete,chatTitle, setChatMessages, 
                     </section>
                     <div onClick={toggleSubmit} className={`shadow-md sm:w-52 bg-white text-black z-10 py-2 px-4 rounded-xl h-64 fixed top-28 right-10 w-40 ${isVisible ? "block" : "hidden"}`}>
                     <div className="my-4 flex flex-col capitalize gap-3 justify-start items-start">
-                    <button className="hover:bg-[#dedee0] w-full text-start p-2 rounded-xl">share</button>
+                    <button className="hover:bg-[#dedee0] w-full text-start p-2 rounded-xl">{content}</button>
                     <button onClick={handleEdit} className="hover:bg-[#dedee0] w-full text-start p-2 rounded-xl">Edit</button>
                     <button className="hover:bg-[#dedee0] w-full text-start p-2 rounded-xl">copy</button>
                     <button className="hover:bg-[#dedee0] w-full text-start p-2 rounded-xl" onClick={() => ChatDelete(comment.id)}>Delete chat</button>

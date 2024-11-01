@@ -11,6 +11,7 @@ import MessageNow from "./message/MessageNow";
 import { useEffect, useState } from "react";
 import { getMessage } from "./api/apiSlice";
 import Combine from './message/Combine';
+import MessageNowLink from './message/MessageNowLink';
 
 function App() {
 
@@ -58,7 +59,7 @@ const ChatDelete = async(id) =>{
         <Route index element={<HomePost />} />
         
       <Route path="message">
-           <Route index element={<MessageNow  chatme={chatme} length={chatMessages.length}/>} />
+           <Route index element={<MessageNowLink  chatme={chatme} length={chatMessages.length}/>} />
       <Route path=":id" element={
           <Combine chatme={chatme} ChatSubmit={ChatSubmit} ChatDelete={ChatDelete} length={chatMessages.length}
           chatTitle={chatTitle} setChatTitle={setChatTitle} setChatMessages={setChatMessages} chatMessages={chatMessages} />} />
