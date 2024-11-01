@@ -1,3 +1,4 @@
+import Users from "../user/Users"
 import PostsList from "./PostsList"
 import SidePost from "./SidePost"
 import SidePosts from "./SidePosts"
@@ -11,7 +12,7 @@ function HomePost (){
             </div>
             <PostsList />
             <div className="hidden sm:block">
-            <SidePosts />
+            <Users />
             </div>
         </section>
     )

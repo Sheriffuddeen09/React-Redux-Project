@@ -5,7 +5,7 @@ export const apiSlice = createApi({
     reducerPath: 'api',
     tagTypes:['Posts'],
     //baseQuery: fetchBaseQuery({ baseUrl: 'https://redux-json.onrender.com' }),
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://redux-json.onrender.com' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3500/' }),
     endpoints: () => ({})
 })
 
@@ -17,7 +17,7 @@ export const {
 } = apiSlice
 
 const Api = axios.create({
-    baseURL:'https://redux-json.onrender.com'
+    baseURL:'http://localhost:3500/'
 })
 
 export const getMessage = async () =>{
