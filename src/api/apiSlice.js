@@ -1,4 +1,5 @@
 import {createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import axios from "axios";
 
 export const apiSlice = createApi({
     reducerPath: 'api',
@@ -14,3 +15,12 @@ export const {
     useDeleteTodosMutation,
     useUpdateTodosMutation
 } = apiSlice
+
+const Api = axios.create({
+    baseURL:'http://localhost:3500/'
+})
+
+export const getMessage = async () =>{
+    const res = await Api.get('/users')
+    return res.data
+}

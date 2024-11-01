@@ -5,9 +5,10 @@ import islam from '../image/islam.jpg'
 import Ayat from '../image/dua.jpg'
 import switc from '../image/gg.jpg'
 import { useState } from "react";
+import MessageNow from "../message/MessageNow";
 
 
-function Header(){
+function Header({length, chatme}){
 
     const [account, setAccount] = useState(false)
     const [accounts, setAccounts] = useState(false)
@@ -15,6 +16,7 @@ function Header(){
     const [switche, setSwitche] = useState(false)
     const [setting, setSetting] = useState(false)
     const [help, setHelp] = useState(false)
+    const [message, setMessage] = useState(false)
     const homepage = useLocation().pathname
 
     const handleAccount = () =>{
@@ -25,6 +27,9 @@ function Header(){
         setPage(!page)
     }
 
+    const handleMessage = () =>{
+        setMessage(!message)
+    }
     const handleAccounts = () =>{
         setAccounts(!accounts)
     }
@@ -112,13 +117,13 @@ function Header(){
             </svg>
 
             </Link>
-            <Link to={'/message'} className={`hover:bg-[#dedee0] h-11 p-2 rounded-2xl icon-hover ${homepage === '/message' ? "message" : "none"}`}>
+            <div onClick={handleMessage} className={`hover:bg-[#dedee0] h-11 p-2 rounded-2xl icon-hover `}>
             <p className="hover-menus"> Messenger </p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 text-black">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
             </svg>
 
-            </Link>
+            </div>
             <Link to={'notify'} className={`hover:bg-[#dedee0] h-11 p-2 rounded-2xl icon-hover ${homepage === '/notify' ? "notify" : "none"}`}>
             <p className="hover-menus"> Nofications </p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 text-black">
@@ -186,16 +191,16 @@ function Header(){
                 
             }} className={`bg-white text-black p-2 w-96 z-10 shadow-md fixed top-20 right-3 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${account ? "block" : "hidden"}`}>
             <div className="bg-white text-black mb-3 p-2 h-72 z-10 shadow-md h-52 rounded-xl" style={{width:"350px"}}>
-                <div className="inline-flex items-center my-2 hover:bg-[#dedee0] py-1 px-5 rounded-xl">
+                <div className="inline-flex items-center my-2 hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
                     <p style={{fontSize:"15px"}}className="capitalize font-bold">Sheriffudden Olawale Love</p>
                 </div>
                 <hr className="my-2" />
-                <div className="inline-flex gap-4 items-center hover:bg-[#dedee0] py-1 px-5 rounded-xl">
+                <div className="inline-flex gap-4 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
                     <img src={islam} width={40} height={40} alt="logo" className="border rounded-full" />
                     <p style={{fontSize:"15px"}}className="hover:bg-[#dedee0] capitalize font-bold">Knowledge about islam</p>
                 </div>
-                <div className="inline-flex gap-4 items-center mt-1 hover:bg-[#dedee0] py-1 px-5 rounded-xl">
+                <div className="inline-flex gap-4 items-center mt-1 hover:bg-[#dedee0] py-1 w-full px-5 rounded-xl">
                     <img src={Ayat} width={40} height={40} alt="logo" className="border rounded-full" />
                     <p style={{fontSize:"15px"}}className="hover:bg-[#dedee0] capitalize font-bold">Quran course</p>
                 </div>
@@ -610,6 +615,13 @@ function Header(){
                 </div>
                 </div>
                 </section>
+                <section onClick={handleMessage} style={{height:"530px",
+                
+            }} className={`bg-white text-black p-2 w-96 z-10 shadow-md fixed top-14 right-28 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${message ? "block" : "hidden"}`}>
+            <div className="bg-white text-black mb-3 p-2 z-10 shadow-md  rounded-xl" style={{width:"350px"}}>
+            <MessageNow chatme={chatme} length={length} />
+            </div>
+            </section>
         </header>
     )
 }
