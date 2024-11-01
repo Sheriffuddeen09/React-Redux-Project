@@ -37,10 +37,10 @@ const ChatSubmit = (e) =>{
     ChatAdd(chatTitle)
     setChatTitle('')
 }
-const ChatAdd = (messageMe) =>{
+const ChatAdd = (name) =>{
     const date= moment().format('h:mm a')
     const id = chatMessages.length ? chatMessages[chatMessages.length - 1].id + 1 : 1
-    const chatme = {id, messageMe, date}
+    const chatme = {id, name, date}
     const results = [...chatMessages, chatme]
     saveChatsMe(results)
 }
@@ -61,7 +61,7 @@ const ChatDelete = async(id) =>{
            <Route index element={<MessageNow  chatme={chatme} length={chatMessages.length}/>} />
       <Route path=":id" element={
           <Combine chatme={chatme} ChatSubmit={ChatSubmit} ChatDelete={ChatDelete} length={chatMessages.length}
-          chatTitle={chatTitle} setChatTitle={setChatTitle} chatMessages={chatMessages} />} />
+          chatTitle={chatTitle} setChatTitle={setChatTitle} setChatMessages={setChatMessages} chatMessages={chatMessages} />} />
       </Route>
       <Route path="user">
           <Route index element={<Users />} />
