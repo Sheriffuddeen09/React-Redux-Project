@@ -6,7 +6,8 @@
       "date":"5pm",
       "dates":"12-August-2023",
       "text":"Write a message to start chat",
-      "image":"review/backend.jpg"
+      "image":"review/backend.jpg",
+      "post":"media/post (1).jpg"
     },
     {
       "id": "2",
@@ -14,7 +15,9 @@
       "date":"2pm",
       "dates":"22-August-2023",
       "text":"Write a message to start chat",
-      "image":"review/python.png"
+      "image":"review/python.png",
+      "post":"media/post (2).jpg"
+
     },
     {
       "id": "3",
@@ -22,7 +25,8 @@
       "date":"9am",
       "dates":"10-september-2023",
       "text":"Write a message to start chat",
-      "image":"review/gg.jpg"
+      "image":"review/gg.jpg",
+      "post":"media/record.mp4"
     },
     {
       "id": "4",
@@ -30,7 +34,9 @@
       "dates":"14-september-2023",
       "date":"8am",
       "text":"Write a message to start chat",
-      "image":"review/product.jpg"
+      "image":"review/product.jpg",
+      "post":"media/post (3).jpg"
+
     },
     {
       "id": "5",
@@ -38,7 +44,9 @@
       "dates":"12-october-2023",
       "date":"2am",
       "text":"Write a message to start chat",
-      "image":"review/unlimited.png"
+      "image":"review/unlimited.png",
+      "post":"media/post (4).jpg"
+
     },
     {
       "id": "6",
@@ -46,7 +54,8 @@
       "dates":"22-november-2023",
       "date":"1w",
       "text":"Write a message to start chat",
-      "image":"review/image-1.jpeg"
+      "image":"review/image-1.jpeg",
+      "post":"media/record2.mp4"
     },
     {
       "id": "7",
@@ -54,7 +63,9 @@
       "dates":"30-november-2023",
      "date":"2w",
       "text":"Write a message to start chat",
-      "image":"review/image-2.jpeg"
+      "image":"review/image-2.jpeg",
+      "post":"media/post (6).jpg"
+
     },
     {
       "id": "8",
@@ -62,7 +73,9 @@
       "dates":"6-december-2023",
       "date":"3w",
       "text":"Write a message to start chat",
-      "image":"review/image-3.jpeg"
+      "image":"review/image-3.jpeg",
+      "post":"media/post (5).jpg"
+
     },
     {
       "id": "9",
@@ -70,7 +83,8 @@
       "dates":"14-december-2023",
       "date":"4w",
       "text":"Write a message to start chat!.",
-      "image":"review/unlimited.png"
+      "image":"review/unlimited.png",
+      "post":"media/testify.mp4"
     },
     {
       "id": "10",
@@ -78,7 +92,8 @@
       "dates":"23-december-2023",
       "date":"4w",
       "text":"Write a message to start chat",
-      "image":"review/theme2.jpg"
+      "image":"review/theme2.jpg",
+      "post":"media/post (7).jpg"
     }
   ],
   "posts": [
