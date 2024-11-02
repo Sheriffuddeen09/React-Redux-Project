@@ -4,16 +4,17 @@ import axios from "axios";
 export const apiSlice = createApi({
     reducerPath: 'api',
     tagTypes:['Posts'],
-    //baseQuery: fetchBaseQuery({ baseUrl: 'https://redux-json.onrender.com' }),
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://redux-json.onrender.com' }),
-    endpoints: () => ({})
+    baseQuery: fetchBaseQuery({ baseUrl:'https://redux-json.onrender.com' }),
+    endpoints: (builder) => ({
+        getTodos: builder.query({
+            query: () => '/posts',
+            providesTags:['Posts']
+        })
+    })
 })
 
 export const {
     useGetTodosQuery,
-    useAddTodosMutation,
-    useDeleteTodosMutation,
-    useUpdateTodosMutation
 } = apiSlice
 
 const Api = axios.create({
