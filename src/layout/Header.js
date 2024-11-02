@@ -60,7 +60,7 @@ function Header({length, chatme}){
             <div className="block sm:hidden">
                 <div className="flex justify-between gap-2 flex-row items-center">
                 <h1 className="text-blue-500 font-bold text-2xl">SheriffPortfilo</h1>
-                <div className="inline-flex gap-2">
+                <div className="inline-flex gap-2 translate-x-3">
                 <p className="bg-[#dedee0] p-1 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-black">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
