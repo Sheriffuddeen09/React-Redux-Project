@@ -128,6 +128,7 @@
       "image": "/review/backend.jpg",
       "user": "user",
       "video": "/media/editVideo.mp4",
+      "titlevideo":"Buy your Affordable Clothe both T-shirt and Trouser from Ollyrae Online Shopping marketing",
       "title": "qui est esse",
       "body": "hey there",
       "userId": 1,
@@ -138,6 +139,7 @@
       "picture": "/media/backend.jpg",
       "image": "/review/gg.jpg",
       "title": "What is on Your mind",
+      "titlevideo":"After every Hardship there's ease in. don't lose in the mercy of Your Lord(Allah) ",
       "user": "user",
       "video": "/media/calamity.mp4",
       "body": "Let me Know",
@@ -154,6 +156,7 @@
       "title": "et ea",
       "image": "/review/theme2.jpg",
       "user": "user",
+      "titlevideo":"Hardship ends with time and be patience Your Lord (Allah) will give you to Your satisfaction in the world and hereafter",
       "video": "/media/calamity2.mp4",
       "body": "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi",
       "userId": 2,
@@ -171,6 +174,7 @@
       "image": "/review/theme3.jpg",
       "user": "user",
       "video": "/media/feeding the poor.mp4",
+      "titlevideo":"Give food and drink to the poor and Orphange for seek of your Lord (Allah)",
       "title": "doloribus ad provident suscipit at",
       "body": "qui consequuntur ducimus possimus quisquam amet similique\nsuscipit porro ipsam amet\neos veritatis officiis exercitationem vel fugit aut necessitatibus totam\nomnis rerum consequatur expedita quidem cumque explicabo"
     },
@@ -180,6 +184,7 @@
       "image": "/review/theme4.jpg",
       "user": "user",
       "video": "/media/considered.mp4",
+      "titlevideo":"Have you not consider the sign of Your Lord",
       "title": "asperiores ea ipsam voluptatibus modi minima quia sint",
       "body": "repellat aliquid praesentium dolorem quo\nsed totam minus non itaque\nnihil labore molestiae sunt dolor eveniet hic recusandae veniam\ntempora et tenetur expedita sunt",
       "date": "2022-04-13T23:04:19.248Z"
@@ -190,6 +195,7 @@
       "image": "/review/image-1.jpeg",
       "user": "user",
       "video": "/media/fabricated.mp4",
+      "titlevideo":"Be Mindful of the Sign of Your Lord (Allah)",
       "title": "a quo magni similique perferendis",
       "body": "alias dolor cumque\nimpedit blanditiis non eveniet odio maxime\nblanditiis amet eius quis tempora quia autem rem\na provident perspiciatis quia",
       "date": "2022-04-20T23:08:19.248Z"
@@ -200,6 +206,7 @@
       "image": "/review/image-2.jpeg",
       "user": "user",
       "video": "/media/death.mp4",
+      "titlevideo":"Death is Evitable so be Prepared",
       "title": "eos dolorem iste accusantium est eaque quam",
       "body": "corporis rerum ducimus vel eum accusantium\nmaxime aspernatur a porro possimus iste omnis\nest in deleniti asperiores fuga aut\nvoluptas sapiente vel dolore minus voluptatem incidunt ex",
       "date": "2022-06-13T23:02:19.248Z"
@@ -211,6 +218,7 @@
       "user": "user",
       "video": "/media/the greatness of the quran.mp4",
       "title": "non est facere",
+      "titlevideo":"the greatness of the quran",
       "body": "molestias id nostrum\nexcepturi molestiae dolore omnis repellendus quaerat saepe\nconsectetur iste quaerat tenetur asperiores accusamus ex ut\nnam quidem est ducimus sunt debitis saepe",
       "reactions": {
         "love": 0,
@@ -225,6 +233,7 @@
       "image": "/review/unlimited.png",
       "user": "user",
       "video": "/media/test from Allah.mp4",
+      "titlevideo":"test from Allah",
       "title": "repellendus qui recusandae incidunt voluptates tenetur qui omnis exercitationem",
       "body": "error suscipit maxime adipisci consequuntur recusandae\nvoluptas eligendi et est et voluptates\nquia distinctio ab amet quaerat molestiae et vitae\nadipisci impedit sequi nesciunt quis consectetur",
       "date": "2022-04-20T23:08:19.248Z"
@@ -235,6 +244,7 @@
       "image": "/review/web.jpg",
       "user": "user",
       "video": "/media/testify.mp4",
+      "titlevideo":"Saying the Shahada before Death",
       "title": "soluta aliquam aperiam consequatur illo quis voluptas",
       "body": "sunt dolores aut doloribus\ndolore doloribus voluptates tempora et\ndoloremque et quo\ncum asperiores sit consectetur dolorem",
       "date": "2024-10-27T16:52:46.863Z"
@@ -245,6 +255,7 @@
       "image": "/review/product.jpg",
       "user": "user",
       "video": "/media/suratul-kahf.mp4",
+      "titlevideo":"Suratul-Kahf",
       "title": "consequatur placeat omnis quisquam quia reprehenderit fugit veritatis facere",
       "body": "asperiores sunt ab assumenda cumque modi velit\nqui esse omnis\nvoluptate et fuga perferendis voluptas\nillo ratione amet aut et omnis",
       "date": "2022-04-20T23:08:19.248Z"
@@ -255,6 +266,7 @@
       "image": "/review/python.png",
       "user": "user",
       "video": "/media/calamity3.mp4",
+      "titlevideo":"After every Hardship there's ease in. don't lose in the mercy of Your Lord(Allah) ",
       "title": "voluptatem doloribus consectetur est ut ducimus",
       "body": "ab nemo optio odio\ndelectus tenetur corporis similique nobis repellendus rerum omnis facilis\nvero blanditiis debitis in nesciunt doloribus dicta dolores\nmagnam minus velit",
       "date": "2022-06-13T23:02:19.248Z"
@@ -265,6 +277,7 @@
       "image": "/review/face.png",
       "user": "user",
       "video": "/media/dua.mp4",
+      "titlevideo":"Dua change destiny",
       "title": "voluptatem laborum magni",
       "body": "sunt repellendus quae\nest asperiores aut deleniti esse accusamus repellendus quia aut\nquia dolorem unde\neum tempora esse dolore",
       "date": "2022-08-13T23:02:19.248Z"
@@ -275,6 +288,7 @@
       "image": "/review/backend.jpg",
       "user": "user",
       "video": "/media/dua2.mp4",
+      "titlevideo":"in any Hardship don't neglect Dua",
       "title": "et iusto veniam et illum aut fuga",
       "body": "occaecati a doloribus\niste saepe consectetur placeat eum voluptate dolorem et\nqui quo quia voluptas\nrerum ut id enim velit est perferendis",
       "date": "2024-10-27T07:12:56.379Z"
@@ -285,6 +299,7 @@
       "image": "/review/theme2.jpg",
       "user": "user",
       "video": "/media/dua3.mp4",
+      "titlevideo":"Dua is part of Ibadaa(worship)",
       "title": "labore in ex et explicabo corporis aut quas",
       "body": "ex quod dolorem ea eum iure qui provident amet\nquia qui facere excepturi et repudiandae\nasperiores molestias provident\nminus incidunt vero fugit rerum sint sunt excepturi provident",
       "date": "2022-05-13T23:02:19.248Z"
@@ -295,6 +310,7 @@
       "image": "/review/theme4.jpg",
       "user": "user",
       "video": "/media/dua4.mp4",
+      "titlevideo":"Allah said we should call on him, he will answer so make dua to Allah the Owner sovereign",
       "title": "tempora rem veritatis voluptas quo dolores vero",
       "body": "facere qui nesciunt est voluptatum voluptatem nisi\nsequi eligendi necessitatibus ea at rerum itaque\nharum non ratione velit laboriosam quis consequuntur\nex officiis minima doloremque voluptas ut aut",
       "date": "2024-10-27T07:12:56.379Z"
@@ -305,6 +321,7 @@
       "video": "/media/death.mp4",
       "image": "/review/product.jpg",
       "title": "ad iusto omnis odit dolor voluptatibus",
+      "titlevideo":"Death is Evitable so be Prepared for the you will meet the Angel of Death",
       "body": "minus omnis soluta quia\nqui sed adipisci voluptates illum ipsam voluptatem\neligendi officia ut in\neos soluta similique molestias praesentium blanditiis",
       "reactions": {
         "love": 0,
@@ -319,6 +336,7 @@
       "user": "user",
       "video": "/media/death2.mp4",
       "title": "aut amet sed",
+      "titlevideo":"Death is Evitable so be Prepared",
       "body": "libero voluptate eveniet aperiam sed\nsunt placeat suscipit molestias\nsimilique fugit nam natus\nexpedita consequatur consequatur dolores quia eos et placeat",
       "reactions": {
         "love": 0,
@@ -332,6 +350,7 @@
       "user": "user",
       "video": "/media/hardship.mp4",
       "id": "19",
+      "titlevideo":"Hardship ends with time and be patience Your Lord (Allah) will give you to Your satisfaction in the world and hereafter",
       "title": "at nam consequatur ea labore ea harum",
       "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut",
       "date": "2022-08-13T23:02:19.248Z"

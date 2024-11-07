@@ -14,6 +14,8 @@ import MessageNowLink from './message/MessageNowLink';
 import ReelPosts from './feature/posts/ReelPost';
 import BlogPost from './blogpost/BlogPost';
 import BlogPage from './blogpost/BlogPage';
+import HomeVideo from './feature/video/HomeVideo';
+import SingleVideo from './feature/video/SingleVideo';
 
 function App() {
 
@@ -92,7 +94,11 @@ const ChatDelete = async(id) =>{
         <Route index element={<AddPostForm />} />
         <Route path=":postId" element={<SinglePage />} />
         <Route path="edit/:postId" element={<EditPostForm />} />
-      
+        </Route>
+
+        <Route path="video">
+        <Route index element={<HomeVideo />} />
+        <Route path=":postId" element={<SingleVideo />} />
         </Route>
   </Route>
     </Routes>
