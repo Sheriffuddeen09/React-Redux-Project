@@ -1,5 +1,4 @@
-import SidePost from "../feature/posts/SidePost"
-import SidePosts from "../feature/posts/SidePosts"
+
 import MessageList from "./MessageList"
 
 const MessageNow = ({chatme, length}) =>{

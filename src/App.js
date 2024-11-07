@@ -7,11 +7,13 @@ import AddPostForm from './feature/posts/AddPostForm'
 import Users from "./feature/user/Users";
 import UsersListId from "./feature/user/UsersListId";
 import HomePost from "./feature/posts/HomePost";
-import MessageNow from "./message/MessageNow";
 import { useEffect, useState } from "react";
-import { getMessage } from "./api/apiSlice";
+import { getMessage, getReels } from "./api/apiSlice";
 import Combine from './message/Combine';
 import MessageNowLink from './message/MessageNowLink';
+import ReelPosts from './feature/posts/ReelPost';
+import BlogPost from './blogpost/BlogPost';
+import BlogPage from './blogpost/BlogPage';
 
 function App() {
 
@@ -19,6 +21,15 @@ function App() {
   const [chatTitle, setChatTitle] = useState('')
   const [chatme, setChatme] = useState([])
 
+
+  
+  const [posts, setPosts] = useState([])
+  useEffect(() =>{
+      getReels().then(json =>{
+          setPosts(json)
+          return json
+      })
+  },[])
   
   useEffect(() =>{
 
@@ -56,8 +67,11 @@ const ChatDelete = async(id) =>{
 
     <Routes>
         <Route path="/" element={<Layout />} >
-        <Route index element={<HomePost />} />
-        
+        <Route index element={<HomePost chatme={chatme} />} />
+        <Route path='posted'>
+        <Route index element={<BlogPost posts={posts} />} />
+        <Route path=':id' element={<BlogPage posts={posts} />} />
+        </Route>
       <Route path="message">
            <Route index element={<MessageNowLink  chatme={chatme} length={chatMessages.length}/>} />
       <Route path=":id" element={
@@ -67,6 +81,11 @@ const ChatDelete = async(id) =>{
       <Route path="user">
           <Route index element={<Users />} />
           <Route path=":userId" element={<UsersListId />} />
+          <Route path=":userId/posts" element={
+            <div className='bg-black'>
+            <ReelPosts />
+            </div>
+            } />
       </Route>
 
         <Route path="post">

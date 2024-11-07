@@ -4,17 +4,20 @@ import ReactionButton from "./ReactionButton"
 import { Link } from "react-router-dom"
 import {  useGetPostsQuery } from "./postsSlice"
 
-function PostsExcept ({postId}){
+function PostsExcept({ postId}) {
 
-    const { post } = useGetPostsQuery('getPosts',{
-        selectFromResult: ({data}) =>({
-            post: data?.entities[postId]
-        })
-    })
+    const { post } = useGetPostsQuery('getPosts', {
+      selectFromResult: ({ data }) => ({
+        post: data?.entities[postId],
+      }),
+    });
+  
+    if (!post) return null;
+
 
     return (
         <div className="w-80 sm:w-96 border border-white shadow-md rounded-xl p-4 bg-white translate-y-16 mx-auto my-14 sm:my-10">
-            <img src={post?.image} alt="imagepicture" className="w-96 h-80"/>
+           {post.image && <img src={post.image} alt="Post visual" className="w-96 h-80" /> }
         <h1 className="text-black text-sm font-bold captalize">
             {post.length}
         </h1>

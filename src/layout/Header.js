@@ -192,8 +192,10 @@ function Header({length, chatme}){
             }} className={`bg-white text-black p-2 w-96 z-10 shadow-md fixed top-20 right-3 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${account ? "block" : "hidden"}`}>
             <div className="bg-white text-black mb-3 p-2 h-72 z-10 shadow-md h-52 rounded-xl" style={{width:"350px"}}>
                 <div className="inline-flex items-center my-2 hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
+                <Link to={'/me'}>
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
                     <p style={{fontSize:"15px"}}className="capitalize font-bold">Sheriffudden Olawale Love</p>
+                </Link>
                 </div>
                 <hr className="my-2" />
                 <div className="inline-flex gap-4 items-center hover:bg-[#dedee0] py-1 px-5 w-full rounded-xl">
@@ -289,11 +291,13 @@ function Header({length, chatme}){
                 </div>
                 <div className="flex mx-auto hover:bg-[#dedee0] bg-white mx-auto py-1 px-3 rounded-xl w-72 sm:gap-6 gap-3 items-center ">               
                      <div className="inline-flex items-center hover:bg-[#dedee0] py-1 px-2 gap-2 rounded-xl">
+                    <Link to={'/me'}>
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
                     <div>
                     <p style={{fontSize:"15px"}}className="capitalize font-bold">Sheriffudden Olawale Love</p>
                     <p>View your profile</p>
                     </div>
+                    </Link>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 bg-[#dedee0] rounded-full" onClick={handlePage}>
                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
@@ -549,10 +553,12 @@ function Header({length, chatme}){
                 <h1 className="font-bold my-6 text-center mt-6">Your Pages and profiles</h1>
                 <hr className="mb-4"/>
                 <div className="flex-row flex items-center justify-between my-2 ">
+                <Link to={'/me'}>
                 <div className="inline-flex gap-2 items-center hover:bg-[#dedee0] py-1 px-2 rounded-xl">
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
-                    <p style={{fontSize:"17px"}}className="capitalize font-bold">Sheriffale Love</p>
+                    <p style={{fontSize:"17px"}}className="capitalize font-bold">Sheriffuddeen Love</p>
                 </div>
+                </Link>
                 <input className="-translate-x-4 border rounded-full" type="checkbox" />
                 </div>
                 <div className="flex-row flex items-center justify-between my-2 ">
@@ -597,10 +603,12 @@ function Header({length, chatme}){
                 <p className="bg-gray-200 font-bold rounded-lg py-1 px-4 text-black -translate-x-3"> Get </p>
                 </div>
                 <div className="flex-row flex items-center my-2 ">
+                <Link to={'/me'}>
                 <div className="inline-flex gap-2 items-center hover:bg-[#dedee0] py-1 px-5 rounded-xl">
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
                     <p style={{fontSize:"19px"}}className="capitalize">Sheriffudden Olawale Love</p>
                 </div>
+                </Link>
                 <p className="-translate-x-3"> Logged_in </p>
                 </div>
                 <div className="flex-row flex items-center my-2 ">

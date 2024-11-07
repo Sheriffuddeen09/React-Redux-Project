@@ -23,6 +23,14 @@ const Api = axios.create({
 })
 
 export const getMessage = async () =>{
-    const res = await Api.get('/users')
+    const res = await Api.get(`/users`)
     return res.data
 }
+
+
+export const getReels = async () =>{
+    const res = await Api.get(`/posts`)
+    return res.data
+}
+
+//baseURL:'https://redux-json.onrender.com'

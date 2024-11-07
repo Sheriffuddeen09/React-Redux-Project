@@ -62,7 +62,7 @@ function Users (){
                 <div className='my-2 w-72 bg-gray-400 h-0.5'> </div>
             </div>
             
-            <p className="text-black px-3 font-bold text-2xl my-3 py-">Friends</p>
+            <p className="text-black px-3 font-bold text-2xl my-3 py-">Friends (10 Online)</p>
             {content}
         </section>
         </section>

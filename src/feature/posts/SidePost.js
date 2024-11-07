@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 function SidePost (){
 
     const [page, setPage] = useState(false)
+    
     const handlePage = () =>{
         setPage(!page)
     }
@@ -14,7 +15,9 @@ function SidePost (){
                 <div className="inline-flex items-center hover:bg-[#dedee0] py-1 px-2 gap-2 rounded-xl">
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
                     <div>
+                    <Link to={'/me'}>
                     <p style={{fontSize:"15px"}}className="capitalize font-bold">Sheriffudden Olawale Love</p>
+                    </Link>
                     </div>
                 </div>
                 <Link to={'/friend'}>

@@ -43,7 +43,7 @@ function SinglePage (){
 
     return (
         <div className="w-72 sm:w-96 border text-black border-black rounded-xl p-4 mx-auto mt-28 mb-10">
-           <img src={post.image} alt="imagepicture" className="w-96 h-80"/>
+          {post.image && <img src={post.image} alt="imagepicture" className="w-96 h-80"/>}
         <h1 className="text-black text-sm font-bold captalize">
             {post.length}
         </h1>
