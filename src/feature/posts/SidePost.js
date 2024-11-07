@@ -69,7 +69,7 @@ function SidePost (){
                 <p>Feeds</p>
                 </div>
                 
-                <div className={`w-40 rounded-xl hover:bg-[#dedee0] w-full my-2 px-3 py-2 gap-2 inline-flex items-center font-bold ${page ? "hidden" : "block"}`} onClick={handlePage}>
+                <div className={`w-40 rounded-xl hover:bg-[#dedee0] cursor-pointer w-full my-2 px-3 py-2 gap-2 inline-flex items-center font-bold ${page ? "hidden" : "block"}`} onClick={handlePage}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 rounded-full bg-[#dedee0] p-2 ">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
@@ -110,6 +110,13 @@ function SidePost (){
                 <p>Reels</p>
                 </div>
                 </Link>
+                <div className={`w-40 rounded-xl hover:bg-[#dedee0] cursor-pointer w-full my-2 px-3 py-2 gap-2 inline-flex items-center font-bold ${page ? "block" : "hidden"}`} onClick={handlePage}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 rounded-full bg-[#dedee0] p-2 cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                </svg>
+
+                <p>See less</p>
+                </div>
             </div>
             </div>
         </section>
