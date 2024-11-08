@@ -1,4 +1,3 @@
-import UserList from "../user/UserLists"
 import TimeAgo from "../posts/TimeAgo"
 import ReactionButton from "../posts/ReactionButton"
 import { Link } from "react-router-dom"
@@ -49,9 +48,7 @@ function VideosExcept({ postId}) {
             {post.body.substring(0, 85)}...see more
         </p>
         </Link>
-        <p className="text-black text-sm my-2 font-bold">
-            <UserList userId={post.userId} />
-        </p>
+      
         <p className="text-black text-sm  italic">
             <TimeAgo timestamp={post.date} />
         </p>

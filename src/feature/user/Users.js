@@ -1,6 +1,7 @@
 import islam from '../image/islam.jpg'
 import { Link } from "react-router-dom"
-import { useGetUsersQuery } from "./userSlice"
+import {useGetUsersQuery } from "./userSlice"
+import AddSingle from './AddFriend'
 
 function Users (){
 
@@ -31,6 +32,7 @@ function Users (){
                 content = <p>{error}</p>
             }
 
+          
     return (
         <section className="text-black bg-gray-100 p-2 w-96 mx-auto flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb hover:scrollbar-thumb-gray-700 shadow-md  scrollbar-thin scrollbar-track-transparent" style={{height:"625px"}}>
         <section className="p-4 flex flex-col justify-center items-start my-14">
@@ -61,7 +63,8 @@ function Users (){
                 </div>
                 <div className='my-2 w-72 bg-gray-400 h-0.5'> </div>
             </div>
-            
+            <div> <AddSingle /> </div>
+            <div className='my-2 w-72 bg-gray-400 h-0.5'> </div>
             <p className="text-black px-3 font-bold text-2xl my-3 py-">Friends (10 Online)</p>
             {content}
         </section>

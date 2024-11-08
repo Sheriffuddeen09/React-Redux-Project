@@ -43,7 +43,7 @@ function Header({length, chatme}){
         setHelp(!help)
     }
     return (
-        <header className="bg-white shadow-md py-0.5 z-10 top-0 fixed w-full">
+        <header className="bg-white shadow-md pb-0.5 pt-3 z-10 top-0 fixed w-full">
             <nav className="flex  justify-between px-3 sm:flex-nowrap flex-wrap items-center">
                 <div className="sm:block hidden" >
             <div className="inline-flex gap-2">

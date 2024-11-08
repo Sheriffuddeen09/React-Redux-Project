@@ -1,16 +1,37 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import logo from './image/image.jpg'
 import { Link } from "react-router-dom"
+import { getMessage, getSingleReels } from "../../api/apiSlice"
 function SidePost (){
 
+    const [users, setUsers] = useState([])
+    useEffect(() =>{
+
+        getMessage().then(json =>{
+            setUsers(json)
+            return json
+        })
+    },[])
     const [page, setPage] = useState(false)
     
     const handlePage = () =>{
         setPage(!page)
     }
 
+    const Reels = (
+        <>
+            {
+                users.map((user) =>(
+                    <Link to={`/user/${user.id}/posts`}>
+                        <p>{user.reel}</p>
+                    </Link>
+                ))
+            }
+        </>
+    )
+
     return(
-        <section className="text-black bg-gray-100 mt-14 p-2 w-80 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-transparent shadow-md  scrollbar-thin scrollbar-track-transparent" style={{height:"570px"}}>
+        <section className="text-black bg-gray-100 mt-14 p-2 w-80 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300 shadow-md  scrollbar-thin scrollbar-track-gray-300" style={{height:"570px"}}>
             <div className="flex flex-col">            
                 <div className="inline-flex items-center hover:bg-[#dedee0] py-1 px-2 gap-2 mt-4 rounded-xl">
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
@@ -104,10 +125,10 @@ function SidePost (){
                 </div>
                 <Link to={`/user/post/`}>
                 <div className="w-40 rounded-xl hover:bg-[#dedee0] w-full  w-full my-2 px-3 py-2 gap-2 inline-flex items-center font-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 border rounded-xl border-black border-2 p-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
                 </svg>
-                <p>Reels</p>
+                <p>{Reels}</p>
                 </div>
                 </Link>
                 <div className={`w-40 rounded-xl hover:bg-[#dedee0] cursor-pointer w-full my-2 px-3 py-2 gap-2 inline-flex items-center font-bold ${page ? "block" : "hidden"}`} onClick={handlePage}>

@@ -1,4 +1,3 @@
-import UserList from "../user/UserLists"
 import TimeAgo from "../posts/TimeAgo"
 import ReactionButton from "../posts/ReactionButton"
 import { Link, useNavigate, useParams } from "react-router-dom"
@@ -75,9 +74,7 @@ function SingleVideo (){
             Edit Post
         </Link>
         <button type="button" onClick={handleDelete} className="text-black bg-red-600 p-1 w-28 my-2 translate-x-5 rounded-xl">Delete</button>
-        <p className="text-black text-sm my-2 font-bold">
-            <UserList userId={post.userId} />
-        </p>
+       
         <p className="text-black text-sm  italic">
             <TimeAgo timestamp={post.date} />
         </p>
