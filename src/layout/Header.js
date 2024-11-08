@@ -274,7 +274,7 @@ function Header({length, chatme}){
             </section>
 
 
-            <section className={`bg-gray-200 h-full text-black p-2 w-full justify-items-center items-center mx-auto z-10 shadow-md fixed top-0 right-0 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${accounts ? "block" : "hidden"}`}>
+            <section className={`bg-gray-200 h-full overflow-hidden text-black p-2 w-full justify-items-center items-center mx-auto z-10 shadow-md fixed top-0 right-0 flex flex-col rounded-lg scrollb scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-gray-300  scrollbar-thin scrollbar-track-white ${accounts ? "block" : "hidden"}`}>
             <div>
                 <div className="flex justify-around -mx-6 my-3 items-center">
                     <div className="inline-flex gap-2 items-center">
@@ -291,7 +291,7 @@ function Header({length, chatme}){
                 </div>
                 <div className="flex mx-auto hover:bg-[#dedee0] bg-white mx-auto py-1 px-3 rounded-xl w-72 sm:gap-6 gap-3 items-center ">               
                      <div className="inline-flex items-center hover:bg-[#dedee0] py-1 px-2 gap-2 rounded-xl">
-                    <Link to={'/me'}>
+                    <Link to={'/me'} className="inline-flex items-center gap-1">
                     <img src={logo} width={40} height={40} alt="logo" className="border rounded-full" />
                     <div>
                     <p style={{fontSize:"15px"}}className="capitalize font-bold">Sheriffudden Olawale Love</p>
@@ -305,7 +305,7 @@ function Header({length, chatme}){
 
                 </div>
 
-                <div className="flex mx-auto hover:bg-[#dedee0] bg-white my-3 mx-auto py-1 px-3 rounded-xl w-72 sm:gap-6 gap-3 items-center ">               
+                <div className="flex mx-auto hover:bg-[#dedee0] bg-white my-3 mx-auto py-1 px-3 rounded-xl w-72 sm:gap-6 gap-20 items-center ">               
                      <div className="inline-flex items-center hover:bg-[#dedee0] py-1 px-2 gap-2 rounded-xl">
                     <img src={switc} width={30} height={30} alt="logo" className="border rounded-full" />
                     <p style={{fontSize:"15px"}}className="capitalize">Switch account</p>

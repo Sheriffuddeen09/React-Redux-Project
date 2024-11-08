@@ -83,7 +83,7 @@ function PostsList (){
             </div>
             <hr className="mt-6 w-72 sm:w-full mx-auto" />
             
-            <div className="sm:hidden block  bg-white rounded-xl p-4 mt-16 translate-y-1 h-20 w-full -mb-28">
+            <div className="sm:hidden block  bg-white w-72 px-1 rounded-xl py-4 mt-16 translate-y-3 h-20  -mb-24">
                 <div className="inline-flex gap-1 sm:gap-3 items-center">
                     <img src={logo} alt="pictureimage" className="h-12 border border-gray-300 w-12 rounded-full" />
                     <div style={{fontSize:"10px"}} className="sm:hidden block w-48 sm:w-80 px-3 py-2 h-8 rounded-3xl bg-gray-200 text-black">What's on your mind, Sheriffudden?</div>

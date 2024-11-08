@@ -4,7 +4,7 @@ import axios from "axios";
 export const apiSlice = createApi({
     reducerPath: 'api',
     tagTypes:['Posts'],
-    baseQuery: fetchBaseQuery({ baseUrl:'https://localhost:3500' }),
+    baseQuery: fetchBaseQuery({ baseUrl:'https://redux-json.onrender.com' }),
     endpoints: (builder) => ({
         getTodos: builder.query({
             query: () => '/posts',

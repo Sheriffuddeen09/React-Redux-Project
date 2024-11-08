@@ -38,7 +38,7 @@ function Slider (){
     )
 
     const usercontentm = (
-        <div className="text-black bg-white gap-4 bg-gray-100 sm:mt-16 mt-28 py-3 px-5 h-52 -mb-20  flex flex-row rounded-lg scrollba scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-transparent shadow-md  scrollbar-thin scrollbar-track-transparent" style={{width:"320px"}}>
+        <div className="text-black bg-white gap-4 bg-gray-100 sm:mt-16 mt-28 py-3 px-5 h-52 overflow-hidden -mb-20  flex flex-row rounded-lg scrollba scroll-p-0 scroll-smooth scrollbar scrollbar-thumb-transparent shadow-md  scrollbar-thin scrollbar-track-transparent" style={{width:"290px"}}>
             {
                 users.map(user =>(
                     <div>

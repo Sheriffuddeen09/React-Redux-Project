@@ -19,7 +19,7 @@ const MessageNow = ({chatme, length}) =>{
             </div>
             <div>
                 <form>
-                    <input className="rounded-3xl sm:w-80 w-64 p-1 bg-gray-200 translate-x-2 mx-auto my-2 border border-gray-200 " />
+                    <input className="rounded-3xl sm:w-80 w-72 p-1 bg-gray-200 translate-x-2 mx-auto my-2 border border-gray-200 " />
                 </form>
                 </div>
                 <p className="bg-blue-50 -mb-20 sm:mb-0 w-16 p-1 text-center rounded-3xl translate-x-3 text-blue-600">Inbox</p>

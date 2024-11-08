@@ -10,7 +10,7 @@ const MessageList = ({chat, length}) =>{
 
     return(
         <div className="translate-y-20 sm:translate-y-0 p-1 bg-white">
-            <div className='text-black flex flex-row justify-between items-center mx-2 mt-4 sm:mt-2 '>
+            <div className='text-black flex flex-row justify-between gap-16 items-center mx-2 mt-4 sm:mt-2 '>
                 <div className="inline-flex gap-3">
                     <img src={chat.image} alt='imagepicture' className='rounded-full w-14 h-14 border border-blue-400 border-2' onClick={toggleFlex}/>
                 <Link to={`/message/${chat.id}`} > 
