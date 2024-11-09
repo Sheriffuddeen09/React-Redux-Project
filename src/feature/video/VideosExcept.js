@@ -20,7 +20,7 @@ function VideosExcept({ postId}) {
         <div className="w-72 sm:w-96 border border-white shadow-md rounded-xl p-4 bg-white translate-y-24 mx-auto sm:my-14 mt-1 sm:translate-y-0 sm:my-10">
            {post.image && 
            <div>
-           <Video style={{width: '290px',
+           <Video style={{width: '280px',
                               height:"300px",
                                 translate: '0px'
 }}

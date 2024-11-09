@@ -54,7 +54,7 @@ function SingleVideo (){
                 <source src={post.video} type="video/webm" width={400} height={400}/>
             </Video>
             
-            <Video  style={{width: '290px',
+            <Video  style={{width: '270px',
                                 height:"400px",
                                 translate: '0px'
                             }}
