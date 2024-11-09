@@ -28,11 +28,11 @@ function VideosExcept({ postId}) {
                 <source src={post.video} type="video/webm" width={400} height={400}/>
             </Video>
 
-            <Video  style={{width: '270px',
+            <Video  style={{width: '260px',
                                 height:"400px",
                                 translate: '0px'
 }}
-            onCanPlayThrough={() => console.log('video')} className=" w-full rounded-xl mx-auto sm:hidden block">
+            onCanPlayThrough={() => console.log('video')} className=" w-72 rounded-xl mx-auto sm:hidden block">
                 <source src={post.video} type="video/webm" width={400} height={400}/>
             </Video> 
         </div>
