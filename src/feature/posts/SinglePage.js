@@ -50,10 +50,10 @@ function SinglePage (){
         <h1 className="text-black text-sm font-bold captalize">
             {post.title}
         </h1>
-        <Link to={`/post/edit/${post.id}`} className="text-blue-500 bg-black py-1 px-3 w-28 my-2 rounded-xl">
+        <Link to={`/post/edit/${post.id}`} className="text-white bg-black py-2 px-3 w-28 my-2 rounded-xl">
             Edit Post
         </Link>
-        <button type="button" onClick={handleDelete} className="text-black bg-red-600 p-1 w-28 my-2 translate-x-5 rounded-xl">Delete</button>
+        <button type="button" onClick={handleDelete} className="text-white bg-red-600 p-1 w-28 my-2 translate-x-5 rounded-xl">Delete</button>
         <p className="text-black text-sm my-2 font-bold">
             <UserList userId={post.userId} />
         </p>
