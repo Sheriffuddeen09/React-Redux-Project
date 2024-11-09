@@ -16,6 +16,7 @@ import BlogPost from './blogpost/BlogPost';
 import BlogPage from './blogpost/BlogPage';
 import HomeVideo from './feature/video/HomeVideo';
 import SingleVideo from './feature/video/SingleVideo';
+import HomeFriend from './friends/HomeFriend';
 
 function App() {
 
@@ -99,6 +100,14 @@ const ChatDelete = async(id) =>{
         <Route path="video">
         <Route index element={<HomeVideo />} />
         <Route path=":postId" element={<SingleVideo />} />
+        </Route>
+        <Route path="friend">
+        <Route index element={
+          <div className='bg-white h-screen'>
+          <HomeFriend />
+          </div>
+        }
+           />
         </Route>
   </Route>
     </Routes>

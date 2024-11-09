@@ -1,6 +1,8 @@
 {
   "users": [
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "1",
       "name": "Leanne ",
       "namesingle": "Leanne ",
@@ -18,6 +20,8 @@
       "delete": "Delete"
     },
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "2",
       "name": "Ervin",
       "namesingle": "Ervin",
@@ -35,6 +39,8 @@
     },
     {
       "amount": "2",
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "3",
       "name": "Clementine",
       "names": "Bauch",
@@ -46,6 +52,8 @@
       "post": "/media/posts (16).jpg"
     },
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "4",
       "name": "Patricia",
       "names": "Lebsack",
@@ -58,6 +66,8 @@
       "post": "/media/posts (3).jpg"
     },
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "5",
       "name": "Chelsey",
       "names": " Dietrich",
@@ -70,6 +80,8 @@
       "post": "/media/posts (4).jpg"
     },
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "6",
       "name": "Mrs. Dennis",
       "names": "Schulist",
@@ -82,6 +94,8 @@
       "post": "/media/posts (6).jpg"
     },
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "7",
       "name": "Kurtis",
       "names": " Weissnat",
@@ -94,6 +108,8 @@
       "post": "/media/posts (7).jpg"
     },
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "8",
       "name": "Nicholas V",
       "names": " Runolfsdottir ",
@@ -106,6 +122,8 @@
       "post": "/media/posts (8).jpg"
     },
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "9",
       "name": "Glenna",
       "names": " Reichert",
@@ -118,6 +136,8 @@
       "post": "/media/posts (9).jpg"
     },
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "10",
       "amount": "2",
       "name": "Clementina",
@@ -367,137 +387,46 @@
   ],
   "userposts": [
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "1",
       "image": "/review/backend.jpg",
-      "video": "/media/editVideo.mp4",
-      "userId": 1,
-      "date": "2022-04-13T23:02:19.248Z"
+      "name":"Chelsey Dave"
     },
     {
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "2",
       "image": "/review/gg.jpg",
-      "video": "/media/calamity.mp4",
-      "userId": 1,
-      "date": "2024-10-27T16:52:46.863Z"
+      "name":"Ervin Hazard"
     },
     {
-      "userId": 2,
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "3",
-      "image": "/review/theme2.jpg",
-      "video": "/media/calamity2.mp4",
-      "date": "2024-10-27T07:12:56.379Z"
+      "name":"Kurtis Gray",
+      "image":"/review/product.jpg"
     },
     {
-      "userId": 2,
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "4",
-      "date": "2022-05-13T23:02:19.248Z",
       "image": "/review/theme3.jpg",
-      "video": "/media/feeding the poor.mp4"
+      "name":"Mrs. Dennis Elizabeth"
     },
     {
-      "userId": 3,
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "5",
       "image": "/review/theme4.jpg",
-      "video": "/media/considered.mp4",
-      "date": "2022-04-13T23:04:19.248Z"
+      "name":"Patricia Oscar"
     },
     {
-      "userId": 3,
+      "add": "Confirm",
+      "delete": "Delete",
       "id": "6",
       "image": "/review/image-1.jpeg",
-      "video": "/media/fabricated.mp4",
-      "date": "2022-04-20T23:08:19.248Z"
-    },
-    {
-      "userId": 4,
-      "id": "7",
-      "user": "user",
-      "video": "/media/death.mp4",
-      "date": "2022-06-13T23:02:19.248Z"
-    },
-    {
-      "userId": 5,
-      "id": "8",
-      "user": "user",
-      "date": "2022-08-13T23:02:19.248Z",
-      "video": "/media/the greatness of the quran.mp4"
-    },
-    {
-      "userId": 5,
-      "id": "9",
-      "image": "/review/unlimited.png",
-      "video": "/media/test from Allah.mp4",
-      "date": "2022-04-20T23:08:19.248Z"
-    },
-    {
-      "userId": 6,
-      "id": "10",
-      "image": "/review/web.jpg",
-      "video": "/media/testify.mp4",
-      "date": "2024-10-27T16:52:46.863Z"
-    },
-    {
-      "userId": 6,
-      "id": "11",
-      "image": "/review/product.jpg",
-      "video": "/media/suratul-kahf.mp4",
-      "date": "2022-04-20T23:08:19.248Z"
-    },
-    {
-      "userId": 7,
-      "id": "12",
-      "image": "/review/python.png",
-      "video": "/media/calamity3.mp4",
-      "date": "2022-06-13T23:02:19.248Z"
-    },
-    {
-      "userId": 7,
-      "id": "13",
-      "image": "/review/face.png",
-      "video": "/media/dua.mp4",
-      "date": "2022-08-13T23:02:19.248Z"
-    },
-    {
-      "userId": 8,
-      "id": "14",
-      "image": "/review/backend.jpg",
-      "video": "/media/dua2.mp4",
-      "date": "2024-10-27T07:12:56.379Z"
-    },
-    {
-      "userId": 8,
-      "id": "15",
-      "image": "/review/theme2.jpg",
-      "video": "/media/dua3.mp4",
-      "date": "2022-05-13T23:02:19.248Z"
-    },
-    {
-      "userId": 9,
-      "id": "16",
-      "user": "user",
-      "video": "/media/dua4.mp4",
-      "date": "2024-10-27T07:12:56.379Z"
-    },
-    {
-      "userId": 9,
-      "id": "17",
-      "video": "/media/death.mp4",
-      "title": "ad iusto omnis odit dolor voluptatibus",
-      "date": "2024-10-27T07:12:56.379Z"
-    },
-    {
-      "userId": 10,
-      "id": "18",
-      "image": "/review/python.png",
-      "video": "/media/death2.mp4",
-      "date": "2024-10-27T07:12:56.379Z"
-    },
-    {
-      "userId": 10,
-      "image": "/review/gg.jpg",
-      "video": "/media/hardship.mp4",
-      "id": "19",
-      "date": "2022-08-13T23:02:19.248Z"
+      "name":"Glenna Daniel"
     }
   ],
   "reels": [
@@ -536,6 +465,22 @@
       "text": "Write a message to start chat",
       "image": "/review/python.png",
       "images": "/review/backend.jpg",
+      "post": "/media/posts (2).jpg",
+      "add": "Confirm",
+      "delete": "Delete"
+    },
+    {
+      "id": "3",
+      "name": "Chelsey",
+      "namesingle": "Chelsey",
+      "names": " Dietrich",
+      "namesingles": "Dietrich",
+      "date": "4pm",
+      "amount": "2",
+      "dates": "22-August-2023",
+      "text": "Write a message to start chat",
+      "image": "/review/backend.jpg",
+      "images": "/review/python.png",
       "post": "/media/posts (2).jpg",
       "add": "Confirm",
       "delete": "Delete"

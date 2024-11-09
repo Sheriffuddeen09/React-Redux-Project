@@ -208,3 +208,7 @@ main.lastSlide {
 main.nextSlide {
   transform: translateX(100%);
 }
+.blue{
+  background-color: rgb(48, 48, 255);
+  color: white;
+}
