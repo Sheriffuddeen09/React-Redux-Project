@@ -17,7 +17,7 @@ function VideosExcept({ postId}) {
 
 
     return (
-        <div className="w-80 sm:w-96 border border-white shadow-md rounded-xl p-4 bg-white translate-y-16 mx-auto my-14 sm:my-10">
+        <div className="w-72 sm:w-96 border border-white shadow-md rounded-xl p-4 bg-white translate-y-16 mx-auto my-14 sm:my-10">
            {post.image && 
            <div>
            <Video style={{width: '290px',
@@ -32,7 +32,7 @@ function VideosExcept({ postId}) {
                                 height:"400px",
                                 translate: '0px'
 }}
-            onCanPlayThrough={() => console.log('video')} className=" w-full relative left-56 rounded-xl sm:hidden block">
+            onCanPlayThrough={() => console.log('video')} className=" w-full rounded-xl mx-auto sm:hidden block">
                 <source src={post.video} type="video/webm" width={400} height={400}/>
             </Video> 
         </div>

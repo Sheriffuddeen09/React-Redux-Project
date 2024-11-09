@@ -34,7 +34,7 @@ const MessageList = ({chat, length}) =>{
                 </Link>
                 </div>
                 <div>
-                        <p className="bg-blue-600 rounded-full w-4 h-4 text-white text-center" style={{fontSize:"9px"}}>{length}</p>
+                        <p className="bg-blue-600 rounded-full w-4 flex flex-col justify-center items-center justify-items-center h-4 text-white text-center" style={{fontSize:"9px"}}>{length}</p>
                         
                     </div>
             </div>
