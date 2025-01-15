@@ -2,13 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { store } from './store/store';
+import  store  from './store';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
-import { extendedApiSlice } from './feature/posts/postsSlice';
 import { Provider } from 'react-redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-store.dispatch(extendedApiSlice.endpoints.getPosts.initiate())
 
 root.render(
   <React.StrictMode>
