@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const NotificationPopup = ({ onCancel }) => {
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50 text-sm">
+    <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-800 bg-opacity-50 flex text-black justify-center items-center z-50 text-sm">
       <div className="bg-white p-6 rounded-md shadow-lg max-w-sm w-full">
         <h3 className="text-lg font-semibold">Welcome Back!</h3>
         <p className="text-sm mt-2">This is your first time logging in. Enjoy your experience!</p>

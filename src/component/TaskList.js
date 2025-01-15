@@ -5,14 +5,16 @@ import { deleteTask, fetchTasks } from "../features/tasks/TaskSlice";
 import EditSide from "./Editside";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faTrash } from "@fortawesome/free-solid-svg-icons";
+import EditSider from "./Editsider";
 
 const TaskList = ({
   theme,
   sidebaradd,
+  sidebaradder,
   taskToEdit,
   setTaskToEdit,
-  layoutMode,
   handleSideAdd,
+  handleSideAdder,
 }) => {
   const { list, status } = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
@@ -81,39 +83,42 @@ const TaskList = ({
   };
 
   return (
-    <div className="mt-0">
+    <div className="mt-0 h-screen overflow-y-auto">
       <div className="inline-flex items-center">
         <label className="text-sm font-medium">To Do</label>
         <select
-            value={taskPriority}
-            onChange={(e) => setTaskPriority(e.target.value)}
-            className="p-2 rounded mb-4 bg-transparent -translate-x-20 translate-y-2"
-          >
+          value={taskPriority}
+          onChange={(e) => setTaskPriority(e.target.value)}
+          className="p-2 rounded mb-4 bg-transparent -translate-x-20 translate-y-2"
+        >
           <option value=""></option>
           <option value="High">High</option>
           <option value="Medium">Medium</option>
           <option value="Low">Low</option>
         </select>
       </div>
-      <div className={`list p-5 text-sm ${theme} max-w-full`}>
+      <div className={`list p-5 text-sm ${theme} ${sidebaradd ? "long" : ""} max-w-full`}>
         <p>Add A Task</p>
-        <div className="flex flex-wrap justify-between items-center text-sm mt-10 gap-6 w-full max-w-full overflow-hidden">
+        <div className="flex justify-between items-center text-sm mt-10 sm:gap-6 w-full max-w-full overflow-hidden">
           <div className={`flex items-center space-x-4 w-full sm:w-auto side ${theme}`}>
-            {/* Icons */}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-4">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
             </svg>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-4">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
         </svg>
 
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-4" onClick={handleSideAdd}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-4 cursor-pointer lg:block hidden" onClick={handleSideAdd}>
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-4 cursor-pointer block sm:hidden" onClick={handleSideAdder}>
   <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
 </svg>
             {/* Additional Icons */}
+            <EditSider sidebaradder={sidebaradder} handleSideAdder={handleSideAdder} theme={theme} />
             <EditSide sidebaradd={sidebaradd} handleSideAdd={handleSideAdd} theme={theme} />
           </div>
-          <div className={` add rounded text-lg ${theme}`}>
+          <div className={` add rounded text-sm sm:text-lg ${theme}`}>
             <TaskInput
               taskToEdit={taskToEdit}
               setTaskToEdit={(task) => {
@@ -124,8 +129,9 @@ const TaskList = ({
         </div>
       </div>
     </div>
+
       {/* Incomplete Tasks */}
-      <div className="mt-4">
+      <div className="mt-4 overflow-y-auto max-h-[50vh] sm:max-h-[60vh]">
         {list
           .filter((task) =>
             taskPriority ? priorities[task.id] === taskPriority : true
@@ -134,7 +140,7 @@ const TaskList = ({
           .map((task) => (
             <div
               key={task.id}
-              className={`flex justify-between items-center p-4 rounded mb-2 ${theme}`}
+              className={`flex justify-between items-center p-4 text-sm rounded mb-2 ${theme} ${sidebaradd ? "long" : ""}`}
             >
               <div className="flex items-center">
                 <input
@@ -148,11 +154,7 @@ const TaskList = ({
               <div className="flex items-center">
                 <FontAwesomeIcon
                   icon={faStar}
-                  className={`cursor-pointer ${
-                    priorities[task.id] === "High"
-                      ? "text-yellow-500"
-                      : "text-gray-400"
-                  }`}
+                  className={`cursor-pointer ${priorities[task.id] === "High" ? "text-yellow-500" : "text-gray-400"}`}
                   onClick={() => handlePriorityChange(task.id)}
                 />
                 <span className="ml-2">{renderPriority(priorities[task.id])}</span>
@@ -168,12 +170,12 @@ const TaskList = ({
       </div>
 
       {/* Completed Tasks */}
-      <div className="mt-8">
+      <div className="mt-8 overflow-y-auto max-h-[50vh] sm:max-h-[60vh]">
         <h2 className="text-xl font-semibold">Completed Tasks</h2>
         {completedTasks.map((task) => (
           <div
             key={task.id}
-            className={`flex justify-between items-center p-4 rounded mb-2 ${theme}`}
+            className={`flex justify-between items-center p-4 rounded mb-2 ${theme} ${sidebaradd ? "long" : ""}`}
           >
             <div className="flex items-center">
               <input

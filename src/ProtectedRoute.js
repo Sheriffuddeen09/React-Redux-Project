@@ -18,6 +18,7 @@ const ProtectedRoute = ({
   const { isAuthenticated } = useSelector((state) => state.auth);
   const [showPopup, setShowPopup] = useState(false);
   const [sidebaradd, setSidebarAdd] = useState(false);
+  const [sidebaradder, setSidebarAdder] = useState(false);
   const [layoutMode, setLayoutMode] = useState("flex");
 
   const toggleLayoutMode = () => {
@@ -26,6 +27,10 @@ const ProtectedRoute = ({
 
   const handleSideAdd = () => {
     setSidebarAdd(!sidebaradd);
+  };
+
+  const handleSideAdder = () => {
+    setSidebarAdder(!sidebaradder);
   };
 
   useEffect(() => {
@@ -78,7 +83,9 @@ const ProtectedRoute = ({
           layoutMode={layoutMode}
           setLayoutMode={setLayoutMode}
           sidebaradd={sidebaradd}
+          sidebaradder={sidebaradder}
           handleSideAdd={handleSideAdd}
+          handleSideAdder={handleSideAdder}
         />
       </div>
 

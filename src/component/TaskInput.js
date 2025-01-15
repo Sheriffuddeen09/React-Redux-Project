@@ -23,7 +23,7 @@ const TaskInput = () => {
     <div>
       <button onClick={() => setIsModalOpen(true)}>Add Task</button>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <form onSubmit={handleAddTask} className="flex flex-col space-y-4">
+        <form onSubmit={handleAddTask} className="flex flex-col sm:space-y-4">
           <input
             type="text"
             value={taskTitle}
