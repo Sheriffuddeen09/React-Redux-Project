@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { deleteTask } from "../features/tasks/TaskSlice";
+import { deleteTask } from "../../api/apitasks/TaskSlice";
 import { useDispatch } from "react-redux";
 
 
-const EditSide = ({theme, sidebaradd, handleSideAdd, task}) => {
+const EditSider = ({theme, sidebaradder, handleSideAdder, task}) => {
 
   const [isActive, setIsActive] = useState(false);
   const [dueDate, setDueDate] = useState(null);
@@ -27,12 +27,11 @@ const EditSide = ({theme, sidebaradd, handleSideAdd, task}) => {
 
   
   const toggleColor = () => {
-    setIsActive(!isActive);
+    setIsActive(!isActive); // Toggles the visibility of the icon star
   };
    
   return (
-    <aside className={`w-80 shadow-md p-4 edit overflow-hidden h-full mt-14 ${theme} fixed top-0 right-0
-    ${sidebaradd ? "block" : "hidden"} z-50 max-h-screen overflow-y-auto scrollbar-thumb-transparent  scrollbar-thin scrollbar-track-transparent `}>
+    <aside className={`w-80 shadow-md p-4 edit overflow-hidden h-full mt-14 ${theme} fixed top-0 right-0 z-50 max-h-screen ${sidebaradder ? "block" : "hidden"} overflow-y-auto scrollbar-thumb-transparent  scrollbar-thin scrollbar-track-transparent `}>
       <div className="flex flex-col flex h-full p-2 items-center -mt-8 justify-between">
       {/* Navigation */}
       <nav className={`space-y-4 p-2 rounded overflow-hidden`}>
@@ -122,12 +121,11 @@ const EditSide = ({theme, sidebaradd, handleSideAdd, task}) => {
 
     <span>Repeat</span>
   </a>
-  <hr className="w-72 -translate-y-24" />
-  <p className="w-72 translate-x-8 -translate-y-20" style={{fontSize:"12px", marginTop:"-10px"}}>Add note</p>
+  
 </nav>
 
 <div className={`flex w-full p-2 items-center mt-2 justify-between flex-row -translate-y-2`}>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4 cursor-pointer" onClick={handleSideAdd}>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4 cursor-pointer" onClick={handleSideAdder}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
   </svg>
 
@@ -144,4 +142,4 @@ const EditSide = ({theme, sidebaradd, handleSideAdd, task}) => {
   );
 };
 
-export default EditSide;
+export default EditSider;

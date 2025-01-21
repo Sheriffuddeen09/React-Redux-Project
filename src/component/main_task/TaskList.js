@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import TaskInput from "./TaskInput";
-import { deleteTask, fetchTasks } from "../features/tasks/TaskSlice";
-import EditSide from "./Editside";
+import { deleteTask, fetchTasks } from "../../api/apitasks/TaskSlice";
+import EditSide from "../layout/Editside";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faTrash } from "@fortawesome/free-solid-svg-icons";
-import EditSider from "./Editsider";
+import EditSider from "../layout/Editsider";
 
 const TaskList = ({
   theme,
@@ -16,71 +16,87 @@ const TaskList = ({
   handleSideAdd,
   handleSideAdder,
 }) => {
-  const { list, status } = useSelector((state) => state.tasks);
-  const dispatch = useDispatch();
+  // Extracts the tasks list and status from the Redux state
+const { list, status } = useSelector((state) => state.tasks);
+const dispatch = useDispatch();
 
-  const [taskPriority, setTaskPriority] = useState("");
-  const [completedTasks, setCompletedTasks] = useState([]);
-  const [priorities, setPriorities] = useState({});
+// State for managing task priority filter
+const [taskPriority, setTaskPriority] = useState("");
 
-  useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchTasks());
-    }
-  }, [dispatch, status]);
+// State for tracking completed tasks (checkbox functionality)
+const [completedTasks, setCompletedTasks] = useState([]);
 
-  useEffect(() => {
-    const savedCompletedTasks =
-      JSON.parse(localStorage.getItem("completedTasks")) || [];
-    const savedPriorities =
-      JSON.parse(localStorage.getItem("taskPriorities")) || {};
+// This is a toggle to manage the priority state of tasks as a key-value pair (taskId: priority)
+const [priorities, setPriorities] = useState({});
 
-    setCompletedTasks(savedCompletedTasks);
-    setPriorities(savedPriorities);
-  }, [list]);
+// Fetches tasks from the backend when the component mounts or if the status changes to "idle"
+useEffect(() => {
+  if (status === "idle") {
+    dispatch(fetchTasks());
+  }
+}, [dispatch, status]);
 
-  useEffect(() => {
-    localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
-    localStorage.setItem("taskPriorities", JSON.stringify(priorities));
-  }, [completedTasks, priorities]);
+// Restores completed tasks and priorities from localStorage when the task list changes
+useEffect(() => {
+  const savedCompletedTasks =
+    JSON.parse(localStorage.getItem("completedTasks")) || []; // Get saved completed tasks
+  const savedPriorities =
+    JSON.parse(localStorage.getItem("taskPriorities")) || {}; // Get saved priorities
 
-  const handleCheckboxClick = (task) => {
-    if (completedTasks.some((t) => t.id === task.id)) {
-      setCompletedTasks(completedTasks.filter((t) => t.id !== task.id));
-    } else {
-      setCompletedTasks([...completedTasks, task]);
-    }
-  };
+  setCompletedTasks(savedCompletedTasks); // Update completed tasks state
+  setPriorities(savedPriorities); // Update priorities state
+}, [list]);
 
-  const handlePriorityChange = (taskId) => {
-    setPriorities((prev) => {
-      const newPriority =
-        prev[taskId] === "High"
-          ? "Medium"
-          : prev[taskId] === "Medium"
-          ? "Low"
-          : "High";
-      return { ...prev, [taskId]: newPriority };
-    });
-  };
+// Persists completed tasks and priorities to localStorage whenever they change
+useEffect(() => {
+  localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
+  localStorage.setItem("taskPriorities", JSON.stringify(priorities));
+}, [completedTasks, priorities]);
 
-  const handleDeleteTask = (id) => {
-    dispatch(deleteTask(id));
-    setCompletedTasks(completedTasks.filter((task) => task.id !== id));
-  };
+// Handles the toggle functionality for task completion (checkbox state)
+const handleCheckboxClick = (task) => {
+  if (completedTasks.some((t) => t.id === task.id)) {
+    // If the task is already completed, remove it from the completed list
+    setCompletedTasks(completedTasks.filter((t) => t.id !== task.id));
+  } else {
+    // Otherwise, add the task to the completed list
+    setCompletedTasks([...completedTasks, task]);
+  }
+};
 
-  const renderPriority = (priority) => {
-    switch (priority) {
-      case "High":
-        return <span className="text-red-500 font-semibold">High</span>;
-      case "Medium":
-        return <span className="text-yellow-500 font-semibold">Medium</span>;
-      case "Low":
-        return <span className="text-green-500 font-semibold">Low</span>;
-      default:
-        return <span className="text-gray-500">No Priority</span>;
-    }
-  };
+// This is a toggle to change task priority cyclically between High, Medium, and Low
+const handlePriorityChange = (taskId) => {
+  setPriorities((prev) => {
+    const newPriority =
+      prev[taskId] === "High"
+        ? "Medium"
+        : prev[taskId] === "Medium"
+        ? "Low"
+        : "High"; // Cycle through priorities
+    return { ...prev, [taskId]: newPriority }; // Update the priority for the given taskId
+  });
+};
+
+// Handles the deletion of a task from the list
+const handleDeleteTask = (id) => {
+  dispatch(deleteTask(id)); // Dispatch action to delete the task in the Redux store
+  setCompletedTasks(completedTasks.filter((task) => task.id !== id)); // Remove the task from completed tasks
+};
+
+// Renders the priority of a task with appropriate styling based on its value
+const renderPriority = (priority) => {
+  switch (priority) {
+    case "High":
+      return <span className="text-red-500 font-semibold">High</span>; // High priority in red
+    case "Medium":
+      return <span className="text-yellow-500 font-semibold">Medium</span>; // Medium priority in yellow
+    case "Low":
+      return <span className="text-green-500 font-semibold">Low</span>; // Low priority in green
+    default:
+      return <span className="text-gray-500">No Priority</span>; // Default for no priority
+  }
+};
+
 
   return (
     <div className="mt-0">

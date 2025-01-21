@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useLocalStorage from "use-local-storage";
 import { useSelector } from 'react-redux';
-import LogoutButton from "./component/Form/Logout";
 import ProtectedRoute from "./ProtectedRoute";
-import EditSide from "./component/Editside";
 const App = () => {
   const [sidebarhide, setSidebarhide] = useState(false)
   const [sidebar, setSidebar] = useState(true)

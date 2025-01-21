@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import LoginForm from "./component/Form/LoginForm";
-import Sidebar from "./component/Sidebar";
-import SidebarHide from "./component/Sidebarhide";
-import Header from "./component/Header";
-import TaskList from "./component/TaskList";
-import NotificationPopup from "./component/NotificationForm";
+import Sidebar from "./component/layout/Sidebar";
+import SidebarHide from "./component/layout/Sidebarhide";
+import Header from "./component/layout/Header";
+import TaskList from "./component/main_task/TaskList";
+import NotificationPopup from "./component/main_task/NotificationForm";
 
 const ProtectedRoute = ({
   handleSide,
