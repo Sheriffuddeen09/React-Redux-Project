@@ -39,10 +39,23 @@ body.dark {
   background-color: #4f5255; /* dark background */
   color: white;
 }
+.sid.dark {
+  background-color: transparent; /* dark background */
+  color: white;
+}
 .side.light {
   background-color: rgb(239, 249, 239); /* dark background */
   color: black;
 }
+
+.today.dark{
+background-color: rgb(146, 182, 143);
+color: white;
+}
+.today.light{
+  background-color: rgb(239, 249, 239) ;
+  color: black;
+  }
 
 .edit.dark {
   background-color: #252628; /* dark background */
@@ -151,17 +164,30 @@ body.dark .app {
     color: white;
     border: none;
    }
-   .circle {
+   .circle.light {
     width: 100px; /* Width of the circle */
     height: 100px; /* Height of the circle */
     border-radius: 50%; /* Make it circular */
     border: 23px solid transparent; /* Set the border size and make it transparent */
-    border-top: 23px solid green; /* Green border at the top */
-    border-right: 23px solid green; /* Green border on the right */
-    border-bottom: 23px solid green; /* Dark green border at the bottom */
+    border-top: 23px solid rgb(61, 158, 61); /* Green border at the top */
+    border-right: 23px solid rgb(61, 158, 61); /* Green border on the right */
+    border-bottom: 23px solid rgb(61, 158, 61); /* Dark green border at the bottom */
     border-left: 23px solid rgb(9, 45, 9); /* Dark green border on the left */
     display: block;
     rotate: 300deg;
+  }
+  .circle.dark {
+    width: 100px; /* Width of the circle */
+    height: 100px; /* Height of the circle */
+    border-radius: 50%; /* Make it circular */
+    border: 23px solid transparent; /* Set the border size and make it transparent */
+    border-top: 23px solid rgb(61, 158, 61); /* Green border at the top */
+    border-right: 23px solid rgb(61, 158, 61); /* Green border on the right */
+    border-bottom: 23px solid rgb(61, 158, 61); /* Dark green border at the bottom */
+    border-left: 23px solid rgb(48, 80, 48); /* Dark green border on the left */
+    display: block;
+    rotate: 300deg;
+    background-color: #17191c;
   }
   
   .small{

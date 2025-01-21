@@ -67,7 +67,7 @@ const EditSide = ({theme, sidebaradd, handleSideAdd, task}) => {
         <hr className="w-72 -translate-y-4" />
   <a
     href="#"
-    className="flex items-center gap-2 p-2 -mt-3 mb-1 text-sm hover:bg-gray-300 rounded -translate-y-6"
+    className="flex items-center gap-2 p-2 -mt-3 mb-1 text-sm hover:bg-gray-400 rounded -translate-y-6"
   >
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -80,7 +80,7 @@ const EditSide = ({theme, sidebaradd, handleSideAdd, task}) => {
 
   <a
     href="#"
-    className="flex items-center gap-2 p-2 text-sm hover:bg-gray-300 rounded -translate-y-10"
+    className="flex items-center gap-2 p-2 text-sm hover:bg-gray-400 rounded -translate-y-10"
   >
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
   <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
@@ -91,7 +91,7 @@ const EditSide = ({theme, sidebaradd, handleSideAdd, task}) => {
   </a>
   <hr className="w-72 -translate-y-12" />
 
-  <a href="#" onClick={() => setShowDatePicker(!showDatePicker)} className=" -translate-y-14 overflow-hidden flex items-center gap-2 p-2 text-sm hover:bg-gray-300 rounded">
+  <a href="#" onClick={() => setShowDatePicker(!showDatePicker)} className=" -translate-y-14 overflow-hidden flex items-center gap-2 p-2 text-sm hover:bg-gray-400 rounded">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
             </svg>
@@ -113,7 +113,7 @@ const EditSide = ({theme, sidebaradd, handleSideAdd, task}) => {
 
   <a
     href="#"
-    className="flex items-center gap-2 p-2 font-medium hover:bg-gray-300 rounded -translate-y-20"
+    className="flex items-center gap-2 p-2 font-medium hover:bg-gray-400 rounded -translate-y-20"
   >
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
@@ -122,7 +122,8 @@ const EditSide = ({theme, sidebaradd, handleSideAdd, task}) => {
 
     <span>Repeat</span>
   </a>
-  
+  <hr className="w-72 -translate-y-24" />
+  <p className="w-72 translate-x-8 -translate-y-20" style={{fontSize:"12px", marginTop:"-10px"}}>Add note</p>
 </nav>
 
 <div className={`flex w-full p-2 items-center mt-2 justify-between flex-row -translate-y-2`}>
